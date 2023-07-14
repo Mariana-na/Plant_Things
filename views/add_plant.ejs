@@ -1,2 +1,50 @@
-<h1><%= appTitle %> 🚀</h1>
-<p>Welcome Ironhacker!</p>
+<h1>Add a Plant to the Database</h1>
+
+<form action="add_plant" method="POST">
+    <label>
+      Plant Name:
+      <input name="plantName" required />
+    </label>
+    <label>
+      Species:
+      <input name="species" required />
+    </label>
+    <label>
+      Ideal Climate:
+      <select name="idealClimate">
+        <% idealClimate.forEach(cliOption => { %>
+            <option value="<%- cliOption %>"><%- cliOption %></option>
+        <%}) %>
+      </select>
+     <!-- REMEMBER TO MAKE THESE REQUIRED -->
+    </label>
+    <label>
+      Direct Sunlight Hours:
+      <select name="directSunlightH">
+        <% directSunlightH.forEach(sunOption => { %>
+            <option value="<%- sunOption %>"><%- sunOption %></option>
+        <%}) %>
+      </select>
+    </label>
+    <label>
+      Soil Type:
+      <select name="soilType">
+        <% soilType.forEach(soilOption => { %>
+            <option value="<%- soilOption %>"><%- soilOption %></option>
+        <%}) %>
+      </select>
+    </label>
+    <label>
+      Organic Matter:
+      <select name="organicMatter">
+        <% organicMatter.forEach(orgMOption => { %>
+            <option value="<%- orgMOption %>"><%- orgMOption %></option>
+        <%}) %>
+      </select>
+    </label>
+    <label>
+      Space:
+      <input name="space" required />
+    </label>
+    <button type="submit">Add Plant</button>
+  </form>
