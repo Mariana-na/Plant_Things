@@ -1,17 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title><%= appTitle %></title>
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-  </head>
 
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title><%= appTitle %></title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
 
-    <%- body %>
+<body>
+  <nav>
+    <div id="logo-user">
+      <img src="../public/images/temp_logo.png" alt="Plant Thing logo">
+      <div id="user-info-header">
+        <ul>
+          <li><a href="/profile">Name</a></li>
+          <li>Username</li>
+          <li>Membership level</li>
+        </ul>
+      </div>
+    </div>
+    <div id="nav-links">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/add_plant">Add a plant</a></li>
+        <li><a href="/suggestion_request">Get a suggestion</a></li>
+      </ul>
+    </div>
+  </nav>
+  <%- body %>
 
-    <script src="/js/script.js"></script>
-  </body>
+  <script src="/js/script.js"></script>
+</body>
+
 </html>

@@ -10,3 +10,41 @@ a {
 h1 {
   color: 15px;
 }
+
+/* Navigation bar */
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+nav > img {
+  width: 64px;
+}
+
+#logo-user {
+  display: flex;
+  background-color: aqua;
+}
+
+#user-info-header {
+  background-color: #ffb700;
+}
+
+#user-info-header > ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+#nav-links {
+  background-color: beige;
+}
+
+#nav-links > ul {
+  display: flex;
+justify-content: flex-end;
+  /* padding: 0px 32px; */
+  gap: 32px;
+  list-style: none;
+}
