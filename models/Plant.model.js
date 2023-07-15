@@ -47,7 +47,8 @@ const plantSchema = new Schema(
         enum: ["Lots", "Some", "Little"],
         required: true,
         //ADD DROP DOWN OPTIONS
-    }
+    },
+    image: String,
   },
 
 );

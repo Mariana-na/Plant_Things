@@ -1,5 +1,6 @@
 body {
-  padding: 50px;
+  /* padding: 50px; */
+  margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -43,8 +44,6 @@ nav > img {
 
 #nav-links > ul {
   display: flex;
-justify-content: flex-end;
-  /* padding: 0px 32px; */
   gap: 32px;
   list-style: none;
 }
