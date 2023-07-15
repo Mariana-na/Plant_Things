@@ -1,6 +1,6 @@
 <h1>Add a Plant to the Database</h1>
 
-<form action="add_plant" method="POST">
+<form action="add_plant" method="POST" style="display: flex; flex-direction:column; align-items:self-start">
     <label>
       Plant Name:
       <input name="plantName" required />
@@ -10,51 +10,61 @@
       <input name="species" required />
     </label>
     <label>
+      Type of Plant:
+      <select name="plantType" required>
+        <option disabled selected>Select an option</option>
+        <% plantType.forEach(pltOption => { %>
+            <option value="<%- pltOption %>"><%- pltOption %></option>
+        <%}) %>
+      </select>
+    </label>
+    <label>
       Ideal Climate:
-      <select name="idealClimate">
+      <select name="idealClimate" multiple required>
+        <option disabled selected>Select an option</option>
         <% idealClimate.forEach(cliOption => { %>
             <option value="<%- cliOption %>"><%- cliOption %></option>
         <%}) %>
       </select>
-     <!-- REMEMBER TO MAKE THESE REQUIRED -->
+      <br>
+      <a href="https://en.wikipedia.org/wiki/K%C3%B6ppen_climate_classification" target="blank">See here for detailed information on Climate Zones</a>
     </label>
     <label>
       Direct Sunlight Hours:
-      <select name="directSunlightH">
+      <select name="directSunlightH" required>
+        <option disabled selected>Select an option</option>
         <% directSunlightH.forEach(sunOption => { %>
             <option value="<%- sunOption %>"><%- sunOption %></option>
         <%}) %>
       </select>
     </label>
     <label>
-      Soil Type:
-      <select name="soilType">
+      Ideal Soil Type:
+      <select name="soilType" multiple required>
+        <option disabled selected>Select an option</option>
         <% soilType.forEach(soilOption => { %>
             <option value="<%- soilOption %>"><%- soilOption %></option>
         <%}) %>
       </select>
     </label>
     <label>
-      Organic Matter:
-      <select name="organicMatter">
+      Ideal Levels of Organic Matter:
+      <select name="organicMatter" required>
+        <option disabled selected>Select an option</option>
         <% organicMatter.forEach(orgMOption => { %>
             <option value="<%- orgMOption %>"><%- orgMOption %></option>
         <%}) %>
       </select>
     </label>
     <label>
-      Space:
-      <select name="space">
-        <% space.forEach(spcOption => { %>
-            <option value="<%- spcOption %>"><%- spcOption %></option>
-        <%}) %>
-      </select>
+      Additional Information:
+      <textarea name="extraInfo" cols="30" rows="10"></textarea>
     </label>
-    <button type="submit">Add Plant</button>
   </form>
   
   <!-- Cloudinary stuff -->
   <form method="POST" action="/uploader" enctype="multipart/form-data">
     <input type="file" name="imageUrl" accept="image/png, image/jpg">
-    <button type="submit">Submit</button>
+    <br> <br>
+    <button type="submit">Add a Plant</button>
   </form>

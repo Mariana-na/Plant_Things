@@ -3,7 +3,7 @@ const idealClimate = require("../utils/idealClimate_Values");
 const directSunlightH = require("../utils/directSunlight_Values");
 const soilType = require("../utils/soilType_Values");
 const organicMatter = require("../utils/organicMatter_Values");
-const space = require("../utils/space_Values");
+const plantType = require("../utils/plantType_Values");
 
 const plantSchema = new Schema(
   {
@@ -42,15 +42,18 @@ const plantSchema = new Schema(
         enum: organicMatter,
         required: true,
     },
-    space: {
+    plantType: {
         type: String,
         label: "Select One",
-        enum: space,
+        enum: plantType,
         required: true,
-
-        //ADD DROP DOWN OPTIONS
     },
-    image: String,
+    extraInfo: {
+      type: String,
+    },
+    image: {
+      type: String,
+    }
   },
 
 );
