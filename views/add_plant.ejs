@@ -44,7 +44,11 @@
     </label>
     <label>
       Space:
-      <input name="space" required />
+      <select name="space">
+        <% space.forEach(spcOption => { %>
+            <option value="<%- spcOption %>"><%- spcOption %></option>
+        <%}) %>
+      </select>
     </label>
     <button type="submit">Add Plant</button>
   </form>
