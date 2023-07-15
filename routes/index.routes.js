@@ -24,4 +24,9 @@ router.get("/add_plant", (req, res, next) => {
   res.render("add_plant", {idealClimate, directSunlightH, soilType, organicMatter, space});
 });
 
+/* GET test page */
+router.get("/test", (req, res, next) => {
+  res.render("test");
+});
+
 module.exports = router;

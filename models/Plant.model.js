@@ -47,7 +47,10 @@ const plantSchema = new Schema(
         label: "Select One",
         enum: space,
         required: true,
-    }
+
+        //ADD DROP DOWN OPTIONS
+    },
+    image: String,
   },
 
 );

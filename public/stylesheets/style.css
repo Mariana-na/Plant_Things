@@ -1,5 +1,6 @@
 body {
-  padding: 50px;
+  /* padding: 50px; */
+  margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -9,4 +10,40 @@ a {
 
 h1 {
   color: 15px;
+}
+
+/* Navigation bar */
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+nav > img {
+  width: 64px;
+}
+
+#logo-user {
+  display: flex;
+  background-color: aqua;
+}
+
+#user-info-header {
+  background-color: #ffb700;
+}
+
+#user-info-header > ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+#nav-links {
+  background-color: beige;
+}
+
+#nav-links > ul {
+  display: flex;
+  gap: 32px;
+  list-style: none;
 }
