@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 const idealClimate = require("../utils/idealClimate_Values");
-const directSunlightH = require("../utils/directSunlight_Values");
+const sunlight = require("../utils/sunlight_Values");
 const soilType = require("../utils/soilType_Values");
 const organicMatter = require("../utils/organicMatter_Values");
 const plantType = require("../utils/plantType_Values");
@@ -10,43 +10,42 @@ const plantSchema = new Schema(
     plantName: {
       type: String,
       trim: true,
-      required: true,
+      //required: true,
     },
     species: {
       type: String,
-      required: true,
+      //required: true,
       trim: true
     },
     idealClimate: {
       type: String,
       label: "Select One",
       enum: idealClimate,
-      required: true,
-      //Should allow multiple selections?
+      //required: true,
     },
-    directSunlightH: {
+    sunlight: {
         type: String,
         label: "Select One",
-        enum: directSunlightH,
-        required: true,
+        enum: sunlight,
+        //required: true,
     },
     soilType: {
         type: String,
         label: "Select One",
         enum: soilType,
-        required: true,
+        //required: true,
     },
     organicMatter: {
         type: String,
         label: "Select One",
         enum: organicMatter,
-        required: true,
+        //required: true,
     },
     plantType: {
         type: String,
         label: "Select One",
         enum: plantType,
-        required: true,
+        //required: true,
     },
     extraInfo: {
       type: String,
