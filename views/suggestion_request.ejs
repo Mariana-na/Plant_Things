@@ -1,7 +1,7 @@
 <h1>Tell Us About Your Environment</h1>
 
 <% const idealClimate = ["Af", "Am", "Aw/As", "BWh", "BWk", "BSh", "BSk", "Csa", "Csb", "Csc", "Cwa", "Cwb", "Cwc", "Cfa", "Cfb", "Cfc", "Dsa", "Dsb", "Dsc", "Dsd", "DWa", "Dwb", "Dwc", "Dwd", "Dfa", "Dfb", "Dfc", "Dfd", "ET", "EF"]; %>
-<% const directSunlightH = ["0h-4h", "4h-8h", "8h-12h", "12h-16h", "16h-20h", "20h-24h", "Indirect sunlight only"]; %>
+<% const sunlight = ["Full Sun", "Partial Sun", "Indirect sunlight only"]; %>
 <% const soilType = ["Sandy soil", "Clay soil", "Silt soil", /*"Peat soil", "Chalk soil", "Loam soil"*/]; %>
 <% const organicMatter = ["High level of compost", "Medium level of compost", "Low level of compost"]; %>
 <% const plantType = ["Tree", "Shrub", "climber", "Creeper", "Herb"]; %>
@@ -17,7 +17,7 @@
     </select>
   </label>
 
-  <div id="typeOfPlant" style="display: none;" required>
+  <div id="typeOfPlant" style="display: none;">
     <label>What type of plant are you looking for?</label>
     <select name="plantType" id="plantType">
       <option disabled selected>Select</option>
@@ -35,13 +35,15 @@
         <option value="<%- cliOption %>"><%- cliOption %></option>
     <%}) %>
     </select>
+    <br>
+    <a href="https://en.wikipedia.org/wiki/K%C3%B6ppen_climate_classification" target="blank">See here for detailed information on Climate Zones</a>
   </div>
 
   <div id="outSun" style="display: none;" required>
     <label>On average, how long is the direct sunlight exposure in the area you would like your plant?</label>
     <select name="sunlightH" id="sunlightH">
       <option disabled selected>Select an option</option>
-        <% directSunlightH.forEach(sunOption => { %>
+        <% sunlight.forEach(sunOption => { %>
             <option value="<%- sunOption %>"><%- sunOption %></option>
         <%}) %>
     </select>
