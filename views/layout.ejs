@@ -10,13 +10,41 @@
 </head>
 
 <body>
+  <% if(typeof userInSession === "undefined") { %>
+  <!-- If userInSession is UNDEFINED -->
   <nav>
     <div id="logo-user">
-      <img src="" alt="Plant Thing logo">
+      <img src="https://res.cloudinary.com/dpncxyxs4/image/upload/v1689507957/temp_logo_l2hbus.png" alt="Plant Thing logo">
       <div id="user-info-header">
         <ul>
-          <li><a href="/profile">Name</a></li>
-          <li>Username</li>
+          <li><a href="/log_in"></a>Log in!</li>
+        </ul>
+      </div>
+    </div>
+    <div id="nav-links">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/add_plant">Add a plant</a></li>
+        <li><a href="/suggestion_request">Get a suggestion</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <% } else { %>
+
+  <!-- If userInSession is DEFINED -->
+  <nav>
+    <div id="logo-user">
+
+      <img src="<%= userInSession.userImage %> " alt="Plant Thing logo">
+
+
+
+      <div id="user-info-header">
+        <ul>
+          <li><a href="/profile"><%= userInSession.firstname %> </a></li>
+          <li><%= userInSession.username %> </li>
           <li>Membership level</li>
         </ul>
       </div>
@@ -30,6 +58,8 @@
       </ul>
     </div>
   </nav>
+  <% } %>
+
   <%- body %>
 
   <script src="/js/script.js"></script>
