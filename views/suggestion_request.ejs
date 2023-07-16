@@ -1,22 +1,35 @@
 <h1>Tell Us About Your Environment</h1>
 
 
-<form action="/sign_up" method="POST">
-    <label>
-      Indoors/Outdoors
-      <input name="indoors/outdoors" required />
-    </label>
-    <label>
-      Climate Zone
-      <input name="climateZone" required />
-    </label>
-    <label>
-      Direct Sunlight
-      <input name="directSunlight" required />
-    </label>
-    <label>
-      Soil
-      <input name="soil" required />
-    </label>
-    <button type="submit">Get me a Plant</button>
+<form action="/suggestion_request" method="POST">
+  <label>
+    Indoors/Outdoors:
+    <select id="in_out" name="inOut" onchange="handleSelectionChange()" required>
+      <option disabled selected>Select an option</option>
+      <option value="Indoors" >Indoors</option>
+      <option value="Outdoors" >Outdoors</option>
+    </select>
+  </label>
+
+  <div id="followUp" style="display: none;">
+    <label>Climate Zone</label>
+    <select name="climateZone" id="climateZone">
+      <option value="">Select</option>
+      <option value="cli1" >Adfghj</option>
+      <option value="cli2">fghjk</option>
+    </select>
+  </div>
+
+  <div id="followUp2" style="display: none;">
+    <label>Direct Sunlight Hours</label>
+    <select name="sunlightH" id="sunlightH">
+      <option value="">Select</option>
+      <option value="sun1">Lots</option>
+      <option value="sun2">Little</option>
+    </select>
+  </div>
+
+  <br>
+  <button type="submit">Get me a Plant</button>
   </form>
+  <script src="plantRequest_values.js"></script>
