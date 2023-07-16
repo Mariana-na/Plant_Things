@@ -5,16 +5,21 @@ function handleSelectionChange () {
     const sunlightH = document.getElementById("sunlightH");
 
     if (selectionDropdown.value === "Outdoors") {
-        followUpDiv.style.display = "block";
-        followUpDiv2.style.display = "none";
+        followUp.style.display = "block";
+        followUp2.style.display = "none";
+        console.log("outdoors selected")
     } else if (selectionDropdown.value === "Indoors") {
-        followUpDiv.style.display = "none";
-        followUpDiv2.style.display = "block";
+        followUp.style.display = "none";
+        followUp2.style.display = "block";
+        console.log("indoors selected")
     } else {
-        followUpDiv.style.display = "none";
-        followUpDiv2.style.display = "none";
+        followUp.style.display = "none";
+        followUp2.style.display = "none";
+        console.log("none selected")
     }
 }
+
+export {handleSelectionChange};
 
 /*
 console.log("handle selection changes function is working")

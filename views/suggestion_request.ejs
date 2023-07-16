@@ -4,7 +4,7 @@
 <form action="/suggestion_request" method="POST">
   <label>
     Indoors/Outdoors:
-    <select id="in_out" name="inOut" onchange="handleSelectionChange()" required>
+    <select id="in_out" name="inOut" onchange=handleSelectionChange() required>
       <option disabled selected>Select an option</option>
       <option value="Indoors" >Indoors</option>
       <option value="Outdoors" >Outdoors</option>
@@ -29,7 +29,29 @@
     </select>
   </div>
 
+ <script>
+  function handleSelectionChange () {
+
+    const selectionDropdown = document.getElementById("in_out");
+    const climateZone = document.getElementById("climateZone")
+    const sunlightH = document.getElementById("sunlightH");
+
+    if (selectionDropdown.value === "Outdoors") {
+        followUp.style.display = "block";
+        followUp2.style.display = "none";
+        console.log("outdoors selected")
+    } else if (selectionDropdown.value === "Indoors") {
+        followUp.style.display = "none";
+        followUp2.style.display = "block";
+        console.log("indoors selected")
+    } else {
+        followUp.style.display = "none";
+        followUp2.style.display = "none";
+        console.log("none selected")
+    }
+  }
+ </script>
+
   <br>
   <button type="submit">Get me a Plant</button>
   </form>
-  <script src="plantRequest_values.js"></script>
