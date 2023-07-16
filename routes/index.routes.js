@@ -23,23 +23,29 @@ router.post("/add_plant", async (req, res) => {
 
   try {
     const newPlant = await Plant.create({ plantName, species, idealClimate, sunlight, soilType, organicMatter, plantType, extraInfo, image });
+    res.render("new_plant_added", {newPlant});
 
-    res.redirect("/new_plant_added")
   } catch (error) {
     console.log(error)
   }
-});
-
-router.get("/new_plant_added", (req, res) => {
-  res.render("new_plant_added");
 });
 
 router.get("/suggestion_request", (req, res) => {
   res.render("suggestion_request");
 });
 
-router.post("/suggestion_request", (req, res) => {
-  const envData = req.body;
+
+router.post("/new_suggestions", async (req, res) => {
+  const {climateZone, sunlight, soilType, organicMatter, plantType } = req.body;
+
+  try {
+    const matchedPlant = await Plant.find({climateZone, sunlight, soilType, organicMatter, plantType});
+    console.log(matchedPlant)
+    res.render("new_suggestions", {matchedPlant});
+
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 /* GET test page */

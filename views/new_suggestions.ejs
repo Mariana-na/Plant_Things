@@ -1,1 +1,19 @@
 <h1>Suggestion Response</h1>
+
+<% if (matchedPlant && matchedPlant.length > 0) { %>
+    <ul>
+      <% matchedPlant.forEach(plant => { %>
+        <li>
+          <strong>Plant Name:</strong> <%= plant.plantName %><br>
+          <strong>Species:</strong> <%= plant.species %><br>
+          <strong>Climate Zone:</strong> <%= plant.climateZone %><br>
+          <strong>Sunlight:</strong> <%= plant.sunlight %><br>
+          <strong>Soil Type:</strong> <%= plant.soilType %><br>
+          <strong>Organic Matter:</strong> <%= plant.organicMatter %><br>
+          <strong>Type of Plant:</strong> <%= plant.plantType %><br>
+        </li>
+      <% }) %>
+    </ul>
+  <% } else { %>
+    <p>No matching plants found.</p>
+  <% } %>

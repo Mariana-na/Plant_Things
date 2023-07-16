@@ -7,7 +7,7 @@
 <% const plantType = ["Tree", "Shrub", "climber", "Creeper", "Herb"]; %>
 <!-- When reviewing the code, try again to find a way to export these variables, to avoid repeating the same thing that's on the util files -->
 
-<form action="/suggestion_request" method="POST">
+<form action="/new_suggestions" method="POST">
   <label>
     Where will you be keeping your plant?
     <select id="in_out" name="inOut" onchange=handleSelectionChange() required>
@@ -41,7 +41,7 @@
 
   <div id="outSun" style="display: none;" required>
     <label>On average, how long is the direct sunlight exposure in the area you would like your plant?</label>
-    <select name="sunlightH" id="sunlightH">
+    <select name="sunlight" id="sunlight">
       <option disabled selected>Select an option</option>
         <% sunlight.forEach(sunOption => { %>
             <option value="<%- sunOption %>"><%- sunOption %></option>

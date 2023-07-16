@@ -18,7 +18,7 @@ const plantSchema = new Schema(
       trim: true
     },
     idealClimate: {
-      type: String,
+      type: [String],
       label: "Select One",
       enum: idealClimate,
       //required: true,
@@ -30,7 +30,7 @@ const plantSchema = new Schema(
         //required: true,
     },
     soilType: {
-        type: String,
+        type: [String],
         label: "Select One",
         enum: soilType,
         //required: true,

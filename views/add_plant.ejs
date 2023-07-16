@@ -1,6 +1,6 @@
 <h1>Add a Plant to the Database</h1>
 
-<form action="add_plant" method="POST" style="display: flex; flex-direction:column; align-items:self-start">
+<form action="/new_suggestions" method="POST" style="display: flex; flex-direction:column; align-items:self-start">
   <label>
     Plant Name:
     <input name="plantName" required />
@@ -20,7 +20,7 @@
   </label>
   <label>
     Ideal Climate:
-    <select name="idealClimate" multiple required>
+    <select name="climateZone" multiple required>
       <option disabled selected>Select an option</option>
       <% idealClimate.forEach(cliOption => { %>
       <option value="<%- cliOption %>"><%- cliOption %></option>
@@ -65,9 +65,10 @@
   <button type="submit">Add a Plant</button>
 </form>
 
-<!-- Cloudinary stuff -->
+<!-- Cloudinary stuff
 <form method="POST" action="/uploader" enctype="multipart/form-data">
   <input type="file" name="imageUrl" accept="image/png, image/jpg">
   <br> <br>
   <button type="submit" >Add picture</button>
 </form>
+-->
