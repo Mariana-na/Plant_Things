@@ -13,11 +13,6 @@ router.get("/", (req, res, next) => {
 });
 
 
-
-router.get("/profile", (req, res, next) => {
-  res.render("profile");
-});
-
 //GET add plant to database page
 router.get("/add_plant", (req, res, next) => {
   //console.log(req);
