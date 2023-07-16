@@ -48,8 +48,13 @@ router.post("/log_in", async (req, res, next) => {
       ) {
         const loggedUser = { ...confirmedUser._doc };
         delete loggedUser.passwordHash;
-        console.log(loggedUser);
+        console.log("This is the info for logged user: ",loggedUser);
         req.session.currentUser = loggedUser;
+        console.log(
+          "*** *** this is the req.session.currentUser: ",
+          req.session.currentUser
+        );
+  
         res.redirect("/profile");
         //    res.render("profile", { userInSession: req.session.currentUser });
       } else {
@@ -76,8 +81,9 @@ router.post("/log_in", async (req, res, next) => {
 
 // GET profile page
 router.get("/profile", (req, res) => {
-    console.log("Profile session", req.session);
-  res.render("profile", { userInSession: req.session.currentUser }); 
+    console.log("AAAAAAABBBBBBBCCCCCCCDDDDDDD Profile session", req.session);
+  res.render("profile", { userInSession: req.session.currentUser });
+
 });
 
 //POST log_out
