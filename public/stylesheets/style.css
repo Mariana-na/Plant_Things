@@ -1,11 +1,6 @@
 body {
-  /* padding: 50px; */
   margin: 16px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00b7ff;
+  font-family: "Roboto", sans-serif;
 }
 
 h1 {
@@ -25,16 +20,15 @@ nav > div > img {
   height: 64px;
   /* outline: 3px solid green;
   outline-offset: -3px; */
-  
 }
 
 #logo-user {
   display: flex;
-  background-color: aqua;
+  /* background-color: aqua; */
 }
 
 #user-info-header {
-  background-color: #ffb700;
+  /* background-color: #ffb700; */
 }
 
 #user-info-header > ul {
@@ -44,11 +38,23 @@ nav > div > img {
 }
 
 #nav-links {
-  background-color: beige;
+  /* background-color: beige; */
 }
 
 #nav-links > ul {
   display: flex;
   gap: 32px;
   list-style: none;
+}
+
+#nav-links > ul > li > a {
+  text-decoration: none;
+  color: black;
+}
+
+.standard {
+  background-color: aquamarine;
+  direction: flex;
+  flex-direction: column;
+  text-align: center;
 }

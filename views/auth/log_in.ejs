@@ -1,17 +1,18 @@
-<h1>Log In</h1>
 
-<form action="/log_in" method="POST">
-    <label>
+  <h1>Sign in to get involved!</h1>
+
+  <form action="/log_in" method="POST" class="standard">
+    <div><label>
       E-Mail
-      <input name="email" type="email" required/>
-    </label>
-    <label>
+      <div><input name="email" type="email" required /></div>
+    </label></div>
+    <div><label>
       Password
-      <input name="password" type="password" required />
-    </label>
+      <div><input name="password" type="password" required /></div>
+    </label></div>
     <button type="submit">Log In</button>
   </form>
 
   <% if (typeof errorMessage !== 'undefined') { %>
-    <p style="color: rgb(107, 8, 8)"><%= errorMessage %></p>
-    <% } %>
+  <p style="color: rgb(107, 8, 8)"><%= errorMessage %></p>
+  <% } %>
