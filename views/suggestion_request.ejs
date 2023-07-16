@@ -1,31 +1,68 @@
 <h1>Tell Us About Your Environment</h1>
 
+<% const idealClimate = ["Af", "Am", "Aw/As", "BWh", "BWk", "BSh", "BSk", "Csa", "Csb", "Csc", "Cwa", "Cwb", "Cwc", "Cfa", "Cfb", "Cfc", "Dsa", "Dsb", "Dsc", "Dsd", "DWa", "Dwb", "Dwc", "Dwd", "Dfa", "Dfb", "Dfc", "Dfd", "ET", "EF"]; %>
+<% const directSunlightH = ["0h-4h", "4h-8h", "8h-12h", "12h-16h", "16h-20h", "20h-24h", "Indirect sunlight only"]; %>
+<% const soilType = ["Sandy soil", "Clay soil", "Silt soil", /*"Peat soil", "Chalk soil", "Loam soil"*/]; %>
+<% const organicMatter = ["High level of compost", "Medium level of compost", "Low level of compost"]; %>
+<% const plantType = ["Tree", "Shrub", "climber", "Creeper", "Herb"]; %>
 
 <form action="/suggestion_request" method="POST">
   <label>
-    Indoors/Outdoors:
+    Where will you be keeping your plant?
     <select id="in_out" name="inOut" onchange=handleSelectionChange() required>
-      <option disabled selected>Select an option</option>
+      <option value="Select">Select an option</option>
       <option value="Indoors" >Indoors</option>
       <option value="Outdoors" >Outdoors</option>
     </select>
   </label>
 
-  <div id="followUp" style="display: none;">
-    <label>Climate Zone</label>
-    <select name="climateZone" id="climateZone">
-      <option value="">Select</option>
-      <option value="cli1" >Adfghj</option>
-      <option value="cli2">fghjk</option>
+  <div id="typeOfPlant" style="display: none;" required>
+    <label>What type of plant are you looking for?</label>
+    <select name="plantType" id="plantType">
+      <option disabled selected>Select</option>
+      <% plantType.forEach(pltOption => { %>
+        <option value="<%- pltOption %>"><%- pltOption %></option>
+    <%}) %>
     </select>
   </div>
 
-  <div id="followUp2" style="display: none;">
-    <label>Direct Sunlight Hours</label>
+  <div id="outClimate" style="display: none;" required>
+    <label>Climate Zone</label>
+    <select name="climateZone" id="climateZone">
+      <option disabled selected>Select</option>
+      <% idealClimate.forEach(cliOption => { %>
+        <option value="<%- cliOption %>"><%- cliOption %></option>
+    <%}) %>
+    </select>
+  </div>
+
+  <div id="outSun" style="display: none;" required>
+    <label>On average, how long is the direct sunlight exposure in the area you would like your plant?</label>
     <select name="sunlightH" id="sunlightH">
-      <option value="">Select</option>
-      <option value="sun1">Lots</option>
-      <option value="sun2">Little</option>
+      <option disabled selected>Select an option</option>
+        <% directSunlightH.forEach(sunOption => { %>
+            <option value="<%- sunOption %>"><%- sunOption %></option>
+        <%}) %>
+    </select>
+  </div>
+
+  <div id="outSoil" style="display: none;" required>
+    <label>Soil Type</label>
+    <select name="soilType" id="soilType" required>
+      <option disabled selected>Select an option</option>
+      <% soilType.forEach(soilOption => { %>
+          <option value="<%- soilOption %>"><%- soilOption %></option>
+      <%}) %>
+    </select>
+  </div>
+
+  <div id="outOrgMat" style="display: none;" required>
+    <label>Organic Matter</label>
+    <select name="organicMatter" id="organicMatter" required>
+      <option disabled selected>Select an option</option>
+      <% organicMatter.forEach(orgMOption => { %>
+          <option value="<%- orgMOption %>"><%- orgMOption %></option>
+      <%}) %>
     </select>
   </div>
 
@@ -33,20 +70,28 @@
   function handleSelectionChange () {
 
     const selectionDropdown = document.getElementById("in_out");
-    const climateZone = document.getElementById("climateZone")
-    const sunlightH = document.getElementById("sunlightH");
+
 
     if (selectionDropdown.value === "Outdoors") {
-        followUp.style.display = "block";
-        followUp2.style.display = "none";
+        outClimate.style.display = "block";
+        outSun.style.display = "block";
+        outSoil.style.display = "block";
+        outOrgMat.style.display = "block";
+        typeOfPlant.style.display = "block";
         console.log("outdoors selected")
     } else if (selectionDropdown.value === "Indoors") {
-        followUp.style.display = "none";
-        followUp2.style.display = "block";
+        outClimate.style.display = "none";
+        outSun.style.display = "none";
+        outSoil.style.display = "none";
+        outOrgMat.style.display = "none";
+        typeOfPlant.style.display = "block";
         console.log("indoors selected")
-    } else {
-        followUp.style.display = "none";
-        followUp2.style.display = "none";
+    } else if (selectionDropdown.value === "Select") {
+        typeOfPlant.style.display = "none";
+        outSun.style.display = "none";
+        outSoil.style.display = "none";
+        outOrgMat.style.display = "none";
+        outClimate.style.display = "none";
         console.log("none selected")
     }
   }
