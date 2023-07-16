@@ -23,8 +23,8 @@ router.post("/add_plant", async (req, res) => {
 
   try {
     const newPlant = await Plant.create({ plantName, species, idealClimate, sunlight, soilType, organicMatter, plantType, extraInfo, image });
+    res.render("new_plant_added", {newPlant});
 
-    res.redirect("/new_plant_added")
   } catch (error) {
     console.log(error)
   }
