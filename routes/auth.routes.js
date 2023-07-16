@@ -11,13 +11,21 @@ router.get("/sign_up", (req, res, next) => {
 /* POST sign_up page */
 router.post("/sign_up", async (req, res, next) => {
   console.log(req.body);
-  const { username, email } = req.body;
+  const { firstname, surname, username, email, plantsAdded, userImage } = req.body;
   const salt = bcrypt.genSaltSync(13);
 
   const passwordHash = bcrypt.hashSync(req.body.password, salt);
 
   try {
-    const newUser = await User.create({ username, email, passwordHash });
+    const newUser = await User.create({
+      firstname,
+      surname,
+      username,
+      email,
+      plantsAdded,
+      userImage,
+      passwordHash,
+    });
     // Here we'll redirect our new user to their profile page
     res.redirect("/profile");
   } catch (error) {
@@ -81,7 +89,6 @@ router.post("/log_in", async (req, res, next) => {
 
 // GET profile page
 router.get("/profile", (req, res) => {
-    console.log("AAAAAAABBBBBBBCCCCCCCDDDDDDD Profile session", req.session);
   res.render("profile", { userInSession: req.session.currentUser });
 
 });

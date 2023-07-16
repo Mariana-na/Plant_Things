@@ -1,7 +1,19 @@
 <h1>Profile Page</h1>
 <% if(typeof userInSession !== "undefined") { %>
-<h2>Welcome, <%= userInSession.username %>!</h2>
-<p>This is your profile page</p>
+<h2>Welcome, <%= userInSession.firstname %>!</h2>
+
+<p>Name: <%= userInSession.firstname %> <%= userInSession.surname %></p>
+<p>Username: <%= userInSession.username %></p>
+<p>Email: <%= userInSession.email %> </p>
+
+<p>You have added <%= userInSession.plantsAdded %> to the database.</p>
+
+<% if(userInSession.plantsAdded > 1) { %>
+<p>Your membership level is GOLD</p>
+<% } else { %>
+  <p>Your membership level is NORMAL</p>
+<% } %>
+
 <button>
   <a href="/profile">Reload the page</a>
 </button>

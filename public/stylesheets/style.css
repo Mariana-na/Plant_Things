@@ -1,6 +1,6 @@
 body {
   /* padding: 50px; */
-  margin: 0;
+  margin: 16px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -16,11 +16,16 @@ h1 {
 
 nav {
   display: flex;
+  height: 64px;
   justify-content: space-between;
 }
 
-nav > img {
+nav > div > img {
   width: 64px;
+  height: 64px;
+  /* outline: 3px solid green;
+  outline-offset: -3px; */
+  
 }
 
 #logo-user {
