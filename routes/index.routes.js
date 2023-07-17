@@ -47,7 +47,7 @@ router.get("/plants/plant_info/:plantId", async (req, res) => {
 
   try {
     const newlyAddedPlant = await Plant.findById(plantId)
-    console.log("XYZXYZXYZXYZXYXZ", newlyAddedPlant)
+    console.log(newlyAddedPlant)
 
     res.render("plants/plant_info", {newlyAddedPlant});
 
@@ -91,10 +91,30 @@ router.get('/plants/view_all_plants', async (req, res, next) => {
   }
 })
 
-/*
-router.get('/view_all_plants/:plantId/update', async (req, res, next) => {
-  const plantToUpdate = await Plant.findById(req.params.plantId)
-  res.render('updatedPlant', { plantToUpdate })
+router.get("/plants/update_plant/:plantId", async (req, res, next) => {
+  
+
+  try {
+    const plantToUpdate = await Plant.findById(req.params.plantId)
+    res.render("plants/update_plant", {plantToUpdate})
+  } catch (error) {
+    console.log(error)
+  }
+
 })
-*/
+
+//Post update
+router.post("/plants/update_plant/:plantId", async (req, res, next) => {
+  console.log(req.body, req.params);
+
+  try {
+    await Plant.findByIdAndUpdate(req.params.plantId, req.body)
+    res.redirect(`/plants/plant_info/${req.params.plantId}`)
+
+  } catch (error) {
+    console.log(error);
+  }
+})
+
+
 module.exports = router;
