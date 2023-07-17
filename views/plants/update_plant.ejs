@@ -13,7 +13,7 @@
     </label>
     <label>
       Species:
-      <input name="species" required />
+      <input name="species" value="<%- plantToUpdate.species %>" required />
     </label>
     <label>
       Type of Plant:
@@ -27,6 +27,63 @@
         <%}) %>
       </select>
     </label>
+    <label>
+      Ideal Climate:
+      <select name="climateZone" value="<%= climateZone %>" multiple required>
+        <% climateZone.forEach(cliOption => { %>
+          <% if(cliOption === plantToUpdate.climateZone) { %>
+            <option value="<%- cliOption %>" selected ><%- cliOption %></option>
+          <%} else {%>
+              <option value="<%- cliOption %>"><%- cliOption %></option> 
+          <%}%>
+        <%}) %>
+      </select>
+      <br>
+      <a href="https://en.wikipedia.org/wiki/K%C3%B6ppen_climate_classification" target="blank">See here for detailed information on Climate Zones</a>
+    </label>
+    <label>
+      Direct Sunlight Hours:
+      <!--Full sun <6h/day Partial sun 3h-6h/day -->
+      <select name="sunlight" value="<%= sunlight %>" required>
+        <% sunlight.forEach(sunOption => { %>
+          <% if(sunOption === plantToUpdate.sunlight) { %>
+            <option value="<%- sunOption %>" selected ><%- sunOption %></option>
+          <%} else {%>
+            <option value="<%- sunOption %>"><%- sunOption %></option>
+            <% } %>
+        <%}) %>
+      </select>
+    </label>
+    <label>
+      Ideal Soil Type:
+      <select name="soilType" value="<%= soilType %>" multiple required>
+        <% soilType.forEach(soilOption => { %>
+          <% if(soilOption === plantToUpdate.soilType) { %>
+            <option value="<%- soilOption %>" selected ><%- soilOption %></option>
+          <%} else {%>
+            <option value="<%- soilOption %>"><%- soilOption %></option>
+            <% } %>
+        <%}) %>
+      </select>
+    </label>
+    <label>
+      Ideal Levels of Organic Matter:
+      <select name="organicMatter" value="<%= organicMatter %>" required>
+        <% organicMatter.forEach(orgMOption => { %>
+          <% if(orgMOption === plantToUpdate.organicMatter) { %>
+            <option value="<%- orgMOption %>" selected ><%- orgMOption %></option>
+          <%} else {%>
+            <option value="<%- orgMOption %>"><%- orgMOption %></option>
+            <% } %>
+        <%}) %>
+      </select>
+    </label>
+    <label>
+      Additional Information:
+      <textarea name="extraInfo" cols="30" rows="10"></textarea>
+    </label>
+
+
   
     <button type="submit">Update Plant</button>
   </form>

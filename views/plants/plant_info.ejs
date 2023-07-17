@@ -20,3 +20,7 @@
 
   <a href="/plants/add_plant">Add another plant</a>
   <a href="/plants/update_plant/<%-newlyAddedPlant._id%>">Update Plant</a>
+
+  <form method="POST" action="/plants/plant_info/<%- newlyAddedPlant._id %>/delete">
+    <button type="submit">Delete</button>
+  </form>
