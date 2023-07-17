@@ -66,9 +66,9 @@ router.post("/suggestions/new_suggestions", async (req, res) => {
 
   try {
     const matchedPlant = await Plant.find({
-      climateZone,
+      climateZone: {$in: [climateZone]},
       sunlight,
-      soilType,
+      soilType: {$in: [soilType]},
       organicMatter,
       plantType,
     });
