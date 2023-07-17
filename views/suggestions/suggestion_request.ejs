@@ -7,7 +7,7 @@
 <% const plantType = ["Tree", "Shrub", "climber", "Creeper", "Herb"]; %>
 <!-- When reviewing the code, try again to find a way to export these variables, to avoid repeating the same thing that's on the util files -->
 
-<form action="/new_suggestions" method="POST">
+<form action="/suggestions/new_suggestions" method="POST">
   <label>
     Where will you be keeping your plant?
     <select id="in_out" name="inOut" onchange=handleSelectionChange() required>

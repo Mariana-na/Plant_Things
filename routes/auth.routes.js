@@ -27,7 +27,7 @@ router.post("/sign_up", async (req, res, next) => {
       passwordHash,
     });
     // Here we'll redirect our new user to their profile page
-    res.redirect("/profile");
+    res.redirect("/users/profile");
   } catch (error) {
     console.log(error);
   }
@@ -63,7 +63,7 @@ router.post("/log_in", async (req, res, next) => {
           req.session.currentUser
         );
   
-        res.redirect("/profile");
+        res.redirect("/users/profile");
         //    res.render("profile", { userInSession: req.session.currentUser });
       } else {
         console.log("Wrong Password");
@@ -88,8 +88,8 @@ router.post("/log_in", async (req, res, next) => {
 });
 
 // GET profile page
-router.get("/profile", (req, res) => {
-  res.render("profile", { userInSession: req.session.currentUser });
+router.get("/users/profile", (req, res) => {
+  res.render("users/profile", { userInSession: req.session.currentUser });
 
 });
 
