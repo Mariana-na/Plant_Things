@@ -116,5 +116,19 @@ router.post("/plants/update_plant/:plantId", async (req, res, next) => {
   }
 })
 
+router.post("/plants/plant_info/:plantId/delete", async (req, res) => {
+  console.log(req.params);
+
+  try {
+    await Plant.findByIdAndDelete(req.params.plantId)
+    res.redirect("/plants/view_all_plants");
+
+
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+
 
 module.exports = router;
