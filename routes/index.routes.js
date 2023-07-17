@@ -14,12 +14,12 @@ router.get("/", (req, res, next) => {
 
 
 //GET add plant to database page
-router.get("/add_plant", (req, res) => {
+router.get("/plants/add_plant", (req, res) => {
   //console.log(req);
-  res.render("add_plant", { climateZone, sunlight, soilType, organicMatter, plantType });
+  res.render("plants/add_plant", { climateZone, sunlight, soilType, organicMatter, plantType });
 });
 
-router.post("/add_plant", async (req, res) => {
+router.post("/plants/add_plant", async (req, res) => {
   const { plantName, species, climateZone, sunlight, soilType, organicMatter, plantType, extraInfo, image } = req.body;
 
   try {
@@ -34,34 +34,34 @@ router.post("/add_plant", async (req, res) => {
       extraInfo,
       image
     });
-    res.redirect(`/new_plant_added/${newPlant._id}`);
+    res.redirect(`/plants/plant_info/${newPlant._id}`);
 
   } catch (error) {
     console.log(error)
   }
 });
 
-router.get("/new_plant_added/:plantId", async (req, res) => {
+router.get("/plants/plant_info/:plantId", async (req, res) => {
   console.log("this is the console.log of the parameters", req.params.plantId);
   const plantId = req.params.plantId
 
   try {
     const newlyAddedPlant = await Plant.findById(plantId)
-    console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAA", newlyAddedPlant)
+    console.log("XYZXYZXYZXYZXYXZ", newlyAddedPlant)
 
-    res.render("new_plant_added", {newlyAddedPlant});
+    res.render("plants/plant_info", {newlyAddedPlant});
 
   } catch (error) {
     console.log(error);
   }
 });
 
-router.get("/suggestion_request", (req, res) => {
-  res.render("suggestion_request");
+router.get("/suggestions/suggestion_request", (req, res) => {
+  res.render("suggestions/suggestion_request");
 });
 
 
-router.post("/new_suggestions", async (req, res) => {
+router.post("/suggestions/new_suggestions", async (req, res) => {
   const { climateZone, sunlight, soilType, organicMatter, plantType } = req.body;
 
   try {
@@ -74,16 +74,27 @@ router.post("/new_suggestions", async (req, res) => {
     });
 
     console.log(matchedPlant)
-    res.render("new_suggestions", { matchedPlant });
+    res.render("suggestions/new_suggestions", { matchedPlant });
 
   } catch (error) {
     console.log(error);
   }
 });
 
-/* GET test page */
-router.get("/test", (req, res, next) => {
-  res.render("test");
-});
 
+router.get('/plants/view_all_plants', async (req, res, next) => {
+  try {
+    const allPlants = await Plant.find()
+    res.render('plants/view_all_plants', { allPlants })
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+/*
+router.get('/view_all_plants/:plantId/update', async (req, res, next) => {
+  const plantToUpdate = await Plant.findById(req.params.plantId)
+  res.render('updatedPlant', { plantToUpdate })
+})
+*/
 module.exports = router;

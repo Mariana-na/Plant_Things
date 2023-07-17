@@ -1,0 +1,7 @@
+<h1>View all plants</h1>
+
+<ul>
+    <% allPlants.forEach(pizza => { %>
+        <li><a href="/plants/plant_info/<%-pizza._id%>"><%- pizza.plantName %></a></li>
+    <%}) %>
+</ul>
