@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-const idealClimate = require("../utils/idealClimate_Values");
+const climateZone = require("../utils/climateZone_Values");
 const sunlight = require("../utils/sunlight_Values");
 const soilType = require("../utils/soilType_Values");
 const organicMatter = require("../utils/organicMatter_Values");
@@ -17,10 +17,10 @@ const plantSchema = new Schema(
       //required: true,
       trim: true
     },
-    idealClimate: {
+    climateZone: {
       type: [String],
       label: "Select One",
-      enum: idealClimate,
+      enum: climateZone,
       //required: true,
     },
     sunlight: {
