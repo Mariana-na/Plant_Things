@@ -1,19 +1,20 @@
 const express = require('express');
 const router = express.Router();
 const Plant = require("../models/Plant.model")
+const Suggestion = require("../models/Suggestion.model");
 const climateZone = require("../utils/climateZone_Values")
 const sunlight = require("../utils/sunlight_Values");
 const soilType = require("../utils/soilType_Values");
 const organicMatter = require("../utils/organicMatter_Values");
 const plantType = require("../utils/plantType_Values");
 
-/* GET home page */
+//---------------Home Page Route---------------------
 router.get("/", (req, res, next) => {
   res.render("index");
 });
 
 
-//GET add plant to database page
+//-------------------Add Plant to Database Routes---------------
 router.get("/plants/add_plant", (req, res) => {
   //console.log(req);
   res.render("plants/add_plant", { climateZone, sunlight, soilType, organicMatter, plantType });
@@ -41,6 +42,8 @@ router.post("/plants/add_plant", async (req, res) => {
   }
 });
 
+
+//------------------Display Newly Added Plant Route-------------
 router.get("/plants/plant_info/:plantId", async (req, res) => {
   console.log("this is the console.log of the parameters", req.params.plantId);
   const plantId = req.params.plantId
@@ -56,11 +59,14 @@ router.get("/plants/plant_info/:plantId", async (req, res) => {
   }
 });
 
+
+//----------------Environment Input Route--------------------
 router.get("/suggestions/suggestion_request", (req, res) => {
   res.render("suggestions/suggestion_request");
 });
 
 
+//----------------Suggestion Output Route---------------------
 router.post("/suggestions/new_suggestions", async (req, res) => {
   const { climateZone, sunlight, soilType, organicMatter, plantType } = req.body;
 
@@ -81,7 +87,44 @@ router.post("/suggestions/new_suggestions", async (req, res) => {
   }
 });
 
+/*
+async function storeSuggestionData(suggestedToUserId, suggestedToUsername, suggestedToUserImg, environmentInput, plantSuggestion, timeStamp, plantSuggestionId, thumbsUp, thumbsDown) {
+  try {
+    //Here I am creating a new Suggestion instance
+    const suggestionInstance = new Suggestion ({
+      suggestedToUserId,
+      suggestedToUsername,
+      suggestedToUserImg,
+      environmentInput,
+      plantSuggestion,
+      timeStamp,
+      plantSuggestionId,
+      thumbsUp,
+      thumbsDown
+    });
+    await suggestionInstance.save();
 
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+router.post ("/suggestions/new_suggestions", async (req, res) => {
+  const {suggestedToUserId, suggestedToUsername, suggestedToUserImg, environmentInput, plantSuggestion, timeStamp, plantSuggestionId, thumbsUp, thumbsDown}= req.body;
+
+  try {
+    
+    await storeSuggestionData(suggestedToUserId, suggestedToUsername, suggestedToUserImg, environmentInput, plantSuggestion, timeStamp, plantSuggestionId, thumbsUp, thumbsDown);
+
+    res.send("Here is a full suggestion data")
+  } catch (error) {
+    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaah", error)
+  }
+
+}) */
+
+
+//------------All Plants Page Route---------------
 router.get('/plants/view_all_plants', async (req, res, next) => {
   try {
     const allPlants = await Plant.find()
@@ -91,9 +134,15 @@ router.get('/plants/view_all_plants', async (req, res, next) => {
   }
 })
 
-router.get("/plants/update_plant/:plantId", async (req, res, next) => {
-  
 
+//-------------Feedback Page Route------------------
+router.get("/suggestions/feedback", (req, res) => {
+res.render("suggestions/feedback");
+});
+
+
+//-------------Update Routes------------------
+router.get("/plants/update_plant/:plantId", async (req, res, next) => {
   try {
     const plantToUpdate = await Plant.findById(req.params.plantId)
     res.render("plants/update_plant", {plantToUpdate})
@@ -103,7 +152,6 @@ router.get("/plants/update_plant/:plantId", async (req, res, next) => {
 
 })
 
-//Post update
 router.post("/plants/update_plant/:plantId", async (req, res, next) => {
   console.log(req.body, req.params);
 
@@ -116,6 +164,7 @@ router.post("/plants/update_plant/:plantId", async (req, res, next) => {
   }
 })
 
+//-------------------Delete Route-------------
 router.post("/plants/plant_info/:plantId/delete", async (req, res) => {
   console.log(req.params);
 
