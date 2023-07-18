@@ -103,5 +103,5 @@ router.post("/log_out", (req, res, next) => {
   });
 });
 
-const { isLoggedIn, isAdmin } = require("../middleware/route-guard.js");
+
 module.exports = router;
