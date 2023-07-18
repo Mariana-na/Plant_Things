@@ -31,4 +31,5 @@ router.get("/test", (req, res, next) => {
   res.render("test");
 });
 
+const { isLoggedIn, isAdmin } = require("../middleware/route-guard.js");
 module.exports = router;

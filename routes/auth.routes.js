@@ -11,7 +11,7 @@ router.get("/sign_up", (req, res, next) => {
 /* POST sign_up page */
 router.post("/sign_up", async (req, res, next) => {
   console.log(req.body);
-  const { firstname, surname, username, email, plantsAdded, userImage } = req.body;
+  const { firstname, lastname, username, email, plantsAdded, userImage } = req.body;
   const salt = bcrypt.genSaltSync(13);
 
   const passwordHash = bcrypt.hashSync(req.body.password, salt);
@@ -19,7 +19,7 @@ router.post("/sign_up", async (req, res, next) => {
   try {
     const newUser = await User.create({
       firstname,
-      surname,
+      lastname,
       username,
       email,
       plantsAdded,
@@ -103,4 +103,5 @@ router.post("/log_out", (req, res, next) => {
   });
 });
 
+const { isLoggedIn, isAdmin } = require("../middleware/route-guard.js");
 module.exports = router;
