@@ -82,8 +82,9 @@ router.get("/suggestions/suggestion_request", (req, res) => {
 
 
 //----------------Suggestion Output Route---------------------
-router.post("/suggestions/new_suggestions", async (req, res) => {
+router.post("/suggestions/new_suggestion", async (req, res) => {
   const { climateZone, sunlight, soilType, organicMatter, plantType } = req.body;
+
 
   try {
     const matchedPlant = await Plant.find({
@@ -93,9 +94,32 @@ router.post("/suggestions/new_suggestions", async (req, res) => {
       organicMatter,
       plantType,
     });
-
     console.log(matchedPlant)
-    res.render("suggestions/new_suggestions", { matchedPlant });
+/*
+    let suggestedToUserId = null;
+    if(req.user){
+      suggestedToUserId = req.user.id
+    };
+
+    const suggestionData = {
+      suggestedToUserId: suggestedToUserId,
+      environmentInput: {
+        climateZone:
+        sunlight,
+        soilType,
+        organicMatter,
+        plantType,
+      },
+      plantSuggestionId: matchedPlant[0]._id,
+      thumbsup: 0,
+      thumbsDown: 0,
+    };
+
+    const newSuggestion = new Suggestion(suggestionData);
+    await newSuggestion.save();
+*/
+
+    res.render("suggestions/new_suggestion", { matchedPlant });
 
   } catch (error) {
     console.log(error);
