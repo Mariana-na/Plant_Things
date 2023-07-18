@@ -5,21 +5,21 @@ const suggestionSchema = new Schema({
     type: Number,
     required: true,
   },
-  suggestedToUsername: {
-    type: String,
-    required: true,
-  },
-  suggestedToUserImg: {
-    type: String,
-  },
+  // suggestedToUsername: {
+  //   type: String,
+  //   required: true,
+  // },
+  // suggestedToUserImg: {
+  //   type: String,
+  // },
   environmentInput: {
     type: Object,
     required: true
   },
-  plantSuggestion: {
-    type: Object,
-    required: true
-  },
+  // plantSuggestion: {
+  //   type: Object,
+  //   required: true
+  // },
   timeStamp: {
     type: Date,
     default: Date.now

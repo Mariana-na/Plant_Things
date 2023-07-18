@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const User = require("../models/User.model");
+const { isLoggedIn, isAdmin } = require("../middleware/route-guard.js");
 
 /* GET sign_up page */
 router.get("/sign_up", (req, res, next) => {
@@ -102,5 +103,6 @@ router.post("/log_out", (req, res, next) => {
     res.redirect("/"); // sends the user back to the index page
   });
 });
+
 
 module.exports = router;
