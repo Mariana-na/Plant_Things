@@ -39,6 +39,10 @@ const userSchema = new Schema({
     default:
       "https://res.cloudinary.com/dpncxyxs4/image/upload/v1689507957/temp_logo_l2hbus.png",
   },
+  isAdmin: {
+    type: Boolean,
+    default: false,
+  }
 });
 
 const User = model("User", userSchema);
