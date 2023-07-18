@@ -2,23 +2,15 @@ const { Schema, model } = require("mongoose");
 
 const suggestionSchema = new Schema({
   suggestedToUserId:{
-    type: Number,
+    type: Number, //--------------RELATION
     required: true,
-  },
-  suggestedToUsername: {
-    type: String,
-    required: true,
-  },
-  suggestedToUserImg: {
-    type: String,
   },
   environmentInput: {
     type: Object,
     required: true
   },
-  plantSuggestion: {
-    type: Object,
-    required: true
+  plantSuggestionId: {
+    type: Number //--------------RELATION
   },
   timeStamp: {
     type: Date,
