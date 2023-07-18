@@ -87,7 +87,7 @@ router.post("/suggestions/new_suggestions", async (req, res) => {
   }
 });
 
-/*
+/* ...
 async function storeSuggestionData(suggestedToUserId, suggestedToUsername, suggestedToUserImg, environmentInput, plantSuggestion, timeStamp, plantSuggestionId, thumbsUp, thumbsDown) {
   try {
     //Here I am creating a new Suggestion instance
