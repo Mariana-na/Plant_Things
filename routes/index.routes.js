@@ -7,6 +7,9 @@ const sunlight = require("../utils/sunlight_Values");
 const soilType = require("../utils/soilType_Values");
 const organicMatter = require("../utils/organicMatter_Values");
 const plantType = require("../utils/plantType_Values");
+const { isLoggedIn, isAdmin } = require("../middleware/route-guard.js");
+
+
 
 //---------------Home Page Route---------------------
 router.get("/", (req, res, next) => {
@@ -60,6 +63,18 @@ router.get("/plants/plant_info/:plantId", async (req, res) => {
 });
 
 
+//------------All Plants Page Route---------------
+router.get('/plants/view_all_plants', isAdmin, async (req, res, next) => {
+  console.log("fhjfiehfoewhfioehf just after get")
+  try {
+    const allPlants = await Plant.find()
+    console.log("LOOK AT ME LOOK AT ME LOOK AT ME LOOK AT ME LOOK AT ME", allPlants);
+    res.render('plants/view_all_plants', { allPlants } )
+  } catch (error) {
+    console.log(error)
+  }
+})
+
 //----------------Environment Input Route--------------------
 router.get("/suggestions/suggestion_request", (req, res) => {
   res.render("suggestions/suggestion_request");
@@ -87,52 +102,6 @@ router.post("/suggestions/new_suggestions", async (req, res) => {
   }
 });
 
-/* ...
-async function storeSuggestionData(suggestedToUserId, suggestedToUsername, suggestedToUserImg, environmentInput, plantSuggestion, timeStamp, plantSuggestionId, thumbsUp, thumbsDown) {
-  try {
-    //Here I am creating a new Suggestion instance
-    const suggestionInstance = new Suggestion ({
-      suggestedToUserId,
-      suggestedToUsername,
-      suggestedToUserImg,
-      environmentInput,
-      plantSuggestion,
-      timeStamp,
-      plantSuggestionId,
-      thumbsUp,
-      thumbsDown
-    });
-    await suggestionInstance.save();
-
-  } catch (error) {
-    console.log(error)
-  }
-}
-
-router.post ("/suggestions/new_suggestions", async (req, res) => {
-  const {suggestedToUserId, suggestedToUsername, suggestedToUserImg, environmentInput, plantSuggestion, timeStamp, plantSuggestionId, thumbsUp, thumbsDown}= req.body;
-
-  try {
-    
-    await storeSuggestionData(suggestedToUserId, suggestedToUsername, suggestedToUserImg, environmentInput, plantSuggestion, timeStamp, plantSuggestionId, thumbsUp, thumbsDown);
-
-    res.send("Here is a full suggestion data")
-  } catch (error) {
-    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaah", error)
-  }
-
-}) */
-
-
-//------------All Plants Page Route---------------
-router.get('/plants/view_all_plants', async (req, res, next) => {
-  try {
-    const allPlants = await Plant.find()
-    res.render('plants/view_all_plants', { allPlants })
-  } catch (error) {
-    console.log(error)
-  }
-})
 
 
 //-------------Feedback Page Route------------------
@@ -142,7 +111,7 @@ res.render("suggestions/feedback");
 
 
 //-------------Update Routes------------------
-router.get("/plants/update_plant/:plantId", async (req, res, next) => {
+router.get("/plants/update_plant/:plantId", isAdmin, async (req, res, next) => {
   try {
     const plantToUpdate = await Plant.findById(req.params.plantId)
     res.render("plants/update_plant", {plantToUpdate})
@@ -165,7 +134,7 @@ router.post("/plants/update_plant/:plantId", async (req, res, next) => {
 })
 
 //-------------------Delete Route-------------
-router.post("/plants/plant_info/:plantId/delete", async (req, res) => {
+router.post("/plants/plant_info/:plantId/delete", isAdmin, async (req, res) => {
   console.log(req.params);
 
   try {
