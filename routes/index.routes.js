@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Plant = require("../models/Plant.model");
 const Suggestion = require("../models/Suggestion.model");
+const User = require("../models/User.model");
 const climateZone = require("../utils/climateZone_Values");
 const sunlight = require("../utils/sunlight_Values");
 const soilType = require("../utils/soilType_Values");
@@ -105,10 +106,7 @@ router.post("/suggestions/new_suggestion", async (req, res) => {
       plantType,
     });
     console.log(matchedPlant);
-        console.log(
-          "ffiehfoiwehfoiehfoeiwhfoeihfefhoeifhewofiheoifeh",
-          req.session.currentUser
-        );
+
     let suggestedToUserId = req.session.currentUser._id;
 
     const suggestionData = {
@@ -125,12 +123,54 @@ router.post("/suggestions/new_suggestion", async (req, res) => {
 });
 
 //-------------Feedback Page Route------------------
-router.get("/suggestions/feedback", (req, res) => {
-  res.render("suggestions/feedback");
+router.get("/suggestions/feedback", async (req, res) => {
+  const {suggestedToUserId, environmentInput, plantSuggestionId} = req.query
+
+  try {
+    const feedbackCards = await Suggestion.find().populate("suggestedToUserId").populate({path:"plantSuggestionId", model: "Plant"}).limit(6);
+
+    const curatedCards = [];
+
+    for (const card of feedbackCards) {
+      const randomIndex = Math.floor(Math.random() * card.plantSuggestionId.length)
+
+
+
+      curatedCards.push({
+        user: card.suggestedToUserId,
+        environmentInput: card.environmentInput,
+        plant: card.plantSuggestionId[randomIndex],
+        thumbsUp: card.thumbsUp,
+        thumbsDown: card.thumbsDown,
+        createdAt: card.createdAt,
+      });
+
+    }
+
+
+    res.render("suggestions/feedback", { curatedCards });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
+/*
+//------------------------Update ThumbsUP -----------------------------
+router.post("/plants/update_plant/:plantId", async (req, res) => {
+  console.log(req.body, req.params);
+
+  try {
+    await Plant.findByIdAndUpdate(req.params.plantId, req.body);
+    res.redirect(`/plants/plant_info/${req.params.plantId}`);
+  } catch (error) {
+    console.log(error);
+  }
+});
+*/
+
+
 //-------------Update Routes------------------
-router.get("/plants/update_plant/:plantId", isAdmin, async (req, res, next) => {
+router.get("/plants/update_plant/:plantId", isAdmin, async (req, res) => {
   try {
     const plantToUpdate = await Plant.findById(req.params.plantId);
     res.render("plants/update_plant", { plantToUpdate });
@@ -139,7 +179,7 @@ router.get("/plants/update_plant/:plantId", isAdmin, async (req, res, next) => {
   }
 });
 
-router.post("/plants/update_plant/:plantId", async (req, res, next) => {
+router.post("/plants/update_plant/:plantId", async (req, res) => {
   console.log(req.body, req.params);
 
   try {
