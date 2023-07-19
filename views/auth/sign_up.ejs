@@ -1,28 +1,30 @@
 <h1>Sign up to be a part of the community!</h1>
 
-<form action="/sign_up" method="POST">
+<form action="/sign_up" method="POST" enctype="multipart/form-data">
   <h2>Welcome to Plant Thing! </h2>
   <h3>Join us in our mission to bring plants to the planet!</h3>
+  <label>
+    First name:
+    <input name="firstname" required />
     <label>
-      First name:
-      <input name="firstname" required />
-      <label>
-        Surname name:
-        <input name="surname" required />
-      </label>
+      Surname name:
+      <input name="surname" required />
     </label>
-    <p>Think of a cool username...</p>
-    <label>
-      Username
-      <input name="username" required />
-    </label>
-    <label>
-      E-Mail
-      <input name="email" type="email" required />
-    </label>
-    <label>
-      Password
-      <input name="password" type="password" required />
-    </label>
-    <button type="submit">Sign In</button>
-  </form>
+  </label>
+  <p>Think of a cool username...</p>
+  <label>
+    Username
+    <input name="username" required />
+  </label>
+  <label>
+    E-Mail
+    <input name="email" type="email" required />
+  </label>
+  <label>
+    Password
+    <input name="password" type="password" required />
+  </label>
+  <label>Upload a photo: <input type="file" name="imageUrl" accept="image/png, image/jpg"></label>
+
+  <button type="submit">Sign Up</button>
+</form>

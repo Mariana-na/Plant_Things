@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const User = require("../models/User.model");
 const { isLoggedIn, isAdmin } = require("../middleware/route-guard.js");
+const uploader = require("../middleware/cloudinary.config.js");
 
 /* GET sign_up page */
 router.get("/sign_up", (req, res, next) => {
@@ -10,11 +11,12 @@ router.get("/sign_up", (req, res, next) => {
 });
 
 /* POST sign_up page */
-router.post("/sign_up", async (req, res, next) => {
+router.post("/sign_up", uploader.single("imageUrl"), async (req, res, next) => {
   console.log(req.body);
-  const { firstname, surname, username, email, plantsAdded, userImage } = req.body;
+  const userImage = req.file.path;
+  const { firstname, surname, username, email, plantsAdded } = req.body;
   const salt = bcrypt.genSaltSync(13);
-
+  
   const passwordHash = bcrypt.hashSync(req.body.password, salt);
 
   try {
@@ -28,6 +30,7 @@ router.post("/sign_up", async (req, res, next) => {
       passwordHash,
     });
     // Here we'll redirect our new user to their profile page
+    // NEW COMMENT
     res.redirect("/users/profile");
   } catch (error) {
     console.log(error);

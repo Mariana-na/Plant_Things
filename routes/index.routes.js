@@ -9,6 +9,7 @@ const soilType = require("../utils/soilType_Values");
 const organicMatter = require("../utils/organicMatter_Values");
 const plantType = require("../utils/plantType_Values");
 const { isLoggedIn, isAdmin } = require("../middleware/route-guard.js");
+const uploader = require("../middleware/cloudinary.config.js");
 
 //---------------Home Page Route---------------------
 router.get("/", (req, res, next) => {
@@ -16,7 +17,7 @@ router.get("/", (req, res, next) => {
 });
 
 //-------------------Add Plant to Database Routes---------------
-router.get("/plants/add_plant", (req, res) => {
+router.get("/plants/add_plant", isLoggedIn, (req, res) => {
   //console.log(req);
   res.render("plants/add_plant", {
     climateZone,
@@ -27,7 +28,10 @@ router.get("/plants/add_plant", (req, res) => {
   });
 });
 
-router.post("/plants/add_plant", async (req, res) => {
+router.post("/plants/add_plant", uploader.single("imageUrl"), async (req, res, next) => {
+  console.log("REQFILEREQFILEREQFILEREQFILEREQFILEREQFILEREQFILE", req.file);
+  const image = req.file.path;
+  
   const {
     plantName,
     species,
@@ -37,9 +41,15 @@ router.post("/plants/add_plant", async (req, res) => {
     organicMatter,
     plantType,
     extraInfo,
-    image,
+    // image,
   } = req.body;
 
+if (!req.file) {
+  console.log("there was an error uploading the file");
+      next(new Error('No file uploaded!'));
+      return;
+    }
+ 
   try {
     const newPlant = await Plant.create({
       plantName,
@@ -52,6 +62,8 @@ router.post("/plants/add_plant", async (req, res) => {
       extraInfo,
       image,
     });
+    
+    
     res.redirect(`/plants/plant_info/${newPlant._id}`);
   } catch (error) {
     console.log(error);
@@ -89,7 +101,7 @@ router.get("/plants/view_all_plants", isAdmin, async (req, res, next) => {
 });
 
 //----------------Environment Input Route--------------------
-router.get("/suggestions/suggestion_request", (req, res) => {
+router.get("/suggestions/suggestion_request", isLoggedIn, (req, res) => {
   res.render("suggestions/suggestion_request");
 });
 
