@@ -1,3 +1,12 @@
 <h1>Here we can see and judge all the previous suggestions generated</h1>
 
- 
+<ul>
+<% curatedCards.forEach(card => { %>
+    <li>
+      <strong>User Name:</strong> <%= card.user.username %><br>
+      <strong>User lastname:</strong> <%= card.user.surname %><br>
+      <strong>Environment:</strong> <%= card.environmentInput.climateZone %><br>
+      <strong>Plant Info:</strong> <%= card.plant.plantName %><br>
+    </li>
+  <% }) %>
+</ul>
