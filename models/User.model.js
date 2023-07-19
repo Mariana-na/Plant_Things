@@ -5,13 +5,13 @@ const userSchema = new Schema({
     type: String,
     trim: true,
     required: true,
-    unique: true,
+
   },
   surname: {
     type: String,
     trim: true,
     required: true,
-    unique: true,
+   
   },
   username: {
     type: String,

@@ -1,6 +1,6 @@
 <h1>Add a Plant to the Database</h1>
 
-<form action="/plants/add_plant" method="POST" style="display: flex; flex-direction:column; align-items:self-start">
+<form action="/plants/add_plant" method="POST" style="display: flex; flex-direction:column; align-items:self-start" enctype="multipart/form-data">
   <label>
     Plant Name:
     <input name="plantName" required />
@@ -61,14 +61,13 @@
     Additional Information:
     <textarea name="extraInfo" cols="30" rows="10"></textarea>
   </label>
-
+ <label>Upload a photo: <input type="file" name="imageUrl" accept="image/png, image/jpg"></label>
   <button type="submit">Add a Plant</button>
 </form>
 
 <!-- Cloudinary stuff
-<form method="POST" action="/uploader" enctype="multipart/form-data">
-  <input type="file" name="imageUrl" accept="image/png, image/jpg">
+<form method="POST" action="/upload" enctype="multipart/form-data">
+ 
   <br> <br>
   <button type="submit" >Add picture</button>
-</form>
--->
+</form> -->
