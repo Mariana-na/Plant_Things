@@ -13,11 +13,18 @@ router.get("/sign_up", (req, res, next) => {
 /* POST sign_up page */
 router.post("/sign_up", uploader.single("imageUrl"), async (req, res, next) => {
   console.log(req.body);
-  const userImage = req.file.path;
+
+  if (!req.file) {
+    console.log("there was an error uploading the file");
+    next(new Error("No file uploaded!"));
+    return;
+  }
+
   const { firstname, surname, username, email, plantsAdded } = req.body;
   const salt = bcrypt.genSaltSync(13);
-  
   const passwordHash = bcrypt.hashSync(req.body.password, salt);
+
+  const userImage = req.file.path;
 
   try {
     const newUser = await User.create({
@@ -39,7 +46,7 @@ router.post("/sign_up", uploader.single("imageUrl"), async (req, res, next) => {
 
 /* GET log_in page */
 router.get("/log_in", (req, res, next) => {
-  console.log("hello?")
+  console.log("hello?");
   res.render("auth/log_in");
 });
 
@@ -60,13 +67,13 @@ router.post("/log_in", async (req, res, next) => {
       ) {
         const loggedUser = { ...confirmedUser._doc };
         delete loggedUser.passwordHash;
-        console.log("This is the info for logged user: ",loggedUser);
+        console.log("This is the info for logged user: ", loggedUser);
         req.session.currentUser = loggedUser;
         console.log(
           "*** *** this is the req.session.currentUser: ",
           req.session.currentUser
         );
-  
+
         res.redirect("/users/profile");
         //    res.render("profile", { userInSession: req.session.currentUser });
       } else {
@@ -94,7 +101,6 @@ router.post("/log_in", async (req, res, next) => {
 // GET profile page
 router.get("/users/profile", (req, res) => {
   res.render("users/profile", { userInSession: req.session.currentUser });
-
 });
 
 //POST log_out
@@ -106,6 +112,5 @@ router.post("/log_out", (req, res, next) => {
     res.redirect("/"); // sends the user back to the index page
   });
 });
-
 
 module.exports = router;

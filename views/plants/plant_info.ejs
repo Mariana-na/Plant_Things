@@ -1,15 +1,15 @@
 <h1>Thank you for your Submission</h1>
 
 <% if (newlyAddedPlant) { %>
-    <p><strong>Plant Name:</strong> <%= newlyAddedPlant.plantName %></p>
-    <p><strong>Species:</strong> <%= newlyAddedPlant.species %></p>
-    <p><strong>Ideal Climate:</strong> <%= newlyAddedPlant.climateZone %></p>
-    <p><strong>Direct Sunlight Hours:</strong> <%= newlyAddedPlant.sunlight %></p>
-    <p><strong>Ideal Soil Type:</strong> <%= newlyAddedPlant.soilType %></p>
-    <p><strong>Ideal Levels of Organic Matter:</strong> <%= newlyAddedPlant.organicMatter %></p>
-    <p><strong>Type of Plant:</strong> <%= newlyAddedPlant.plantType %></p>
+    <p>Plant Name: <%= newlyAddedPlant.plantName %></p>
+    <p>Species: <%= newlyAddedPlant.species %></p>
+     <p>Type of Plant: <%= newlyAddedPlant.plantType %></p>
+
+    <p>Ideal Climate: <%= newlyAddedPlant.climateZone %></p>
+    <p>Soil Type: <%= newlyAddedPlant.soilType %></p>
+    <p>Organic Matter: <%= newlyAddedPlant.organicMatter %></p>
     <% if (newlyAddedPlant.extraInfo) { %>
-      <p><strong>Additional Information:</strong> <%= newlyAddedPlant.extraInfo %></p>
+      <p>Additional Information: <%= newlyAddedPlant.extraInfo %></p>
     <% } %>
     <% if (newlyAddedPlant.image) { %>
       <img src="<%= newlyAddedPlant.image %>" alt="Plant Image" width="300">

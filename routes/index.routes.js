@@ -30,7 +30,12 @@ router.get("/plants/add_plant", isLoggedIn, (req, res) => {
 
 router.post("/plants/add_plant", uploader.single("imageUrl"), async (req, res, next) => {
   console.log("REQFILEREQFILEREQFILEREQFILEREQFILEREQFILEREQFILE", req.file);
-  const image = req.file.path;
+  
+  if (!req.file) {
+    console.log("there was an error uploading the file");
+    next(new Error("No file uploaded!"));
+    return;
+  }
   
   const {
     plantName,
@@ -44,12 +49,9 @@ router.post("/plants/add_plant", uploader.single("imageUrl"), async (req, res, n
     // image,
   } = req.body;
 
-if (!req.file) {
-  console.log("there was an error uploading the file");
-      next(new Error('No file uploaded!'));
-      return;
-    }
  
+  const image = req.file.path;
+
   try {
     const newPlant = await Plant.create({
       plantName,
