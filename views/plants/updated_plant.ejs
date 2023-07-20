@@ -1,20 +1,27 @@
-<h1><%= plantToUpdate.plantName %> has been updated!</h1>
+
+<h1><%= newlyAddedPlant.plantName %> has been updated!</h1>
+
+<% if (newlyAddedPlant) { %>
+<p>Plant Name: <%= newlyAddedPlant.plantName %></p>
+<p>Species: <%= newlyAddedPlant.species %></p>
+<p>Type of Plant: <%= newlyAddedPlant.plantType %></p>
+
+<p>Ideal Climate: <%= newlyAddedPlant.climateZone %></p>
+<p>Soil Type: <%= newlyAddedPlant.soilType %></p>
+<p>Organic Matter: <%= newlyAddedPlant.organicMatter %></p>
+<% if (newlyAddedPlant.extraInfo) { %>
+<p>Additional Information: <%= newlyAddedPlant.extraInfo %></p>
+<% } %>
+<% if (newlyAddedPlant.image) { %>
+<img src="<%= newlyAddedPlant.image %>" alt="Plant Image" width="300">
+<% } %>
+<% } else { %>
+<p>No information available for the new plant.</p>
+<% } %>
+
+<a href="/plants/add_plant">Add another plant</a>
+<a href="/plants/update_plant/<%-newlyAddedPlant._id%>">Update Plant</a>
 
 
-<% if (plantToUpdate) { %>
-    <p>Plant Name: <%= plantToUpdate.plantName %></p>
-    <p>Species: <%= plantToUpdate.species %></p>
-    <p>Ideal Climate: <%= plantToUpdate.climateZone %></p>
-    <p>Direct Sunlight Hours: <%= plantToUpdate.sunlight %></p>
-    <p>Ideal Soil Type: <%= plantToUpdate.soilType %></p>
-    <p>Ideal Levels of Organic Matter:> <%= plantToUpdate.organicMatter %></p>
-    <p>Type of Plant: <%= plantToUpdate.plantType %></p>
-    <% if (plantToUpdate.extraInfo) { %>
-      <p>Additional Information: <%= plantToUpdate.extraInfo %></p>
-    <% } %>
-    <% if (plantToUpdate.image) { %>
-      <img src="<%= plantToUpdate.image %>" alt="Plant Image" width="300">
-    <% } %>
-  <% } else { %>
-    <p>No Update Information</p>
-  <% } %>
+</form>
+

@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="/stylesheets/Mstyle.css" />
+<!-- This is the main container in which everything is centred using flexbox, flex-direction: column -->
+<div class="form-containerM">
+  <h1>Become a member!</h1>
+  <form class="form-containerM" action="/sign_up" method="POST" enctype="multipart/form-data">
+    <p>Think of a cool username...</p>
+    <!-- This is the container containing both the group of labels and the group of fields. This can be centred within the main div (formContainerM) -->
+    <div class="infoFieldsM">
+        <!-- This is the left hand group of labels. These can be aligned to the right so they all line up -->
+      <div class="label-fields">
+        <label>Username </label>
+        <label>E-Mail</label>
+        <label>Password</label>
+      </div>
+      <!-- This is the right hand group of input fields. These can be aligned to the left so they line up -->
+      <div class="input-fields">
+        <input name="username" required />
+        <input class="cigaretteM" name="email" type="email" required />
+        <input class="cigaretteM" name="password" type="password" required />
+      </div>
+    </div>
+    <!-- Everything below this is centred within formContainerM -->
+    <p>Optional:</p>
+    <label>Upload a photo: <input type="file" name="imageUrl" accept="image/png, image/jpg"></label>
+    <button type="submit">Sign Up</button>
+  </form>
+</div>

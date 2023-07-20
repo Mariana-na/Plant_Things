@@ -1,22 +1,35 @@
-<h1>Profile Page</h1>
-<% if(typeof userInSession !== "undefined") { %>
-<h2>Welcome, <%= userInSession.firstname %>!</h2>
+<div class="profile-page-main">
+  <h1>Welcome, <%= userInSession.firstname %>!</h1>
 
-<p>Name: <%= userInSession.firstname %> <%= userInSession.surname %></p>
-<p>Username: <%= userInSession.username %></p>
-<p>Email: <%= userInSession.email %> </p>
+  <h2>Here is your profile page!</h2>
 
-<p>You have added <%= userInSession.plantsAdded %> to the database.</p>
+  <% if(typeof userInSession !== "undefined") { %>
 
-<% if(userInSession.plantsAdded > 1) { %>
+  <div class="profile-user-info">
+    <!-- <span><p>Name: <%= userInSession.firstname %> <%= userInSession.surname %></p></span> -->
+
+    <p class="profile-label">Username:</p>
+    <p class="profile-info"><%= userInSession.username %></p>
+    <p class="profile-label">Email:</p>
+    <p class="profile-info"><%= userInSession.email %> </p>
+
+    <p> <a href="/plants/view_all_plants">View All Plants</a></p>
+
+
+  </div>
+
+  <!-- <p>You have added <%= userInSession.plantsAdded %> to the database.</p> -->
+
+  <!-- <% if(userInSession.plantsAdded > 1) { %>
 <p>Your membership level is GOLD</p>
 <% } else { %>
-  <p>Your membership level is NORMAL</p>
-<% } %>
+<p>Your membership level is NORMAL</p>
+<% } %> -->
 
-<% } else { %>
+  <% } else { %>
 
-<br>
-<p>Still no logged in user, sorry!</p>
+  <br>
+  <p>Still no logged in user, sorry!</p>
 
-<% } %>
+  <% } %>
+</div>
