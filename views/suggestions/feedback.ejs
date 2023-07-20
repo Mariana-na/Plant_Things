@@ -1,20 +1,40 @@
-<h1>Here we can see and judge all the previous suggestions generated</h1>
+<h1 id="feedback-h1">Here we can see and judge all the previous suggestions generated</h1>
 
-<ul>
-<% curatedCards.forEach(card => { %>
-    <li>
-      <strong>User Name:</strong> <%= card.user.username %><br>
-      <strong>User lastname:</strong> <%= card.user.surname %><br>
-      <strong>Environment:</strong> <%= card.environmentInput.climateZone %><br>
-      <strong>Plant Info:</strong> <%= card.plant.plantName %><br>
-      <form method="POST" action="/suggestions/feedback/thumbsUp/<%= card._id %>">
-        <button type="submit">Thumbs Up</button>
-      </form>
-      <form method="POST" action="/suggestions/feedback/thumbsDown/<%= card._id %>">
-        <button type="submit">Thumbs Down</button>
-      </form>
-      <strong>thumbsUp</strong><%= card.thumbsUp %>
-      <strong>thumbsDown</strong><%= card.thumbsDown %>
-    </li>
+<ul id="all-cards-container">
+  <% curatedCards.forEach(card => { %>
+  <li id="card-container">
+
+    <div id="card-image">
+
+      <div id="card-image-info">
+        <span id="feedback-plant-name"><%= card.plant.plantName %></span>
+        <span id="feedback-plant-type"><%= card.plant.plantType %></span>
+        <span id="feedback-plant-request-by">Request by: <%= card.user.username %></span>
+      </div>
+
+      <img src=" <%= card.plant.image %>" alt="Plant image">
+
+    </div>
+
+    <ul id="card-info">
+     <li class="feedback-label">Environment: <%= card.environmentInput.climateZone %></li>
+     <li class="feedback-label">Sunlight: <%= card.environmentInput.sunlight %></li>
+     <li class="feedback-label">Soil Type: <%= card.environmentInput.soilType %></li>
+      <li class="feedback-label">Organic Matter: <%= card.environmentInput.organicMatter %></li>
+    </ul>
+
+    <div class="thumbs-buttons">
+      <span class="thumb-button-group">
+        <form method="POST" action="/suggestions/feedback/thumbsUp/<%= card._id %>">
+          <button class="thumbs-up" type="submit"></button>
+        </form><%= card.thumbsUp %>
+      </span>
+      <span class="thumb-button-group">
+        <form method="POST" action="/suggestions/feedback/thumbsDown/<%= card._id %>">
+          <button class="thumbs-down" type="submit"></button>
+        </form><%= card.thumbsDown %>
+      </span>
+    </div>
+  </li>
   <% }) %>
 </ul>

@@ -115,7 +115,154 @@ nav > div > a > img {
 
 #index-bg {
   width: 100%;
+  height: 87.55vh;
   background-size: cover;
   background-image: url("../images/background_2x.png");
+
+  display: flex; /* Add this line */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Add this line */
 }
 
+#index-bg > img {
+  width: 12rem;
+  margin: 4rem;
+}
+
+#index-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#index-buttons > a {
+  width: 12rem;
+  margin: 0 20% 0 20%;
+  background-color: white;
+  padding: 0.5rem;
+  margin-bottom: 2rem;
+  text-decoration: none;
+  text-align: center;
+  color: black;
+  border-radius: 32px;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* SUGGESTION CARDS */
+
+#all-cards-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#card-container {
+  width: 400px;
+  background-color: #03490f;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+  padding: 2rem;
+  border-radius: 32px;
+}
+
+#card-container {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid #9DC6A1;
+}
+
+
+#card-image {
+  display: flex;
+  flex-direction: column;
+
+}
+
+#card-image {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#card-image > img {
+  width: 128px;
+  margin-left: 0.5rem;
+}
+
+#card-image-info {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+#card-info {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1rem;
+}
+
+.thumbs-buttons {
+  display: flex;
+}
+
+#feedback-plant-type {
+  font-style: italic;
+}
+
+#feedback-plant-name {
+  font-size: 1.2rem;
+  font-style: bold;
+  padding: 0.5rem;
+  background-color: white;
+  /* border-radius: 0px 16px 16px 0px; */
+  border-radius: 16px;
+  color: #03490f;
+  margin-right: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#feedback-plant-request-by {
+  font-size: 0.8rem;
+}
+
+.feedback-label {
+  font-size: 1rem;
+}
+
+#feedback-h1 {
+  text-align: center;
+}
+
+.thumbs-buttons {
+  gap: 2rem;
+}
+
+.thumb-button-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.thumbs-up {
+  background-color: white;
+  width: 64px;
+  height: 32px;
+  border: none;
+  border-radius: 16px;
+  background-image: url("../public/images/thumbsUp.png");
+  background-size: cover;
+}
+
+.thumbs-down {
+  background-color: white;
+  width: 64px;
+  height: 32px;
+  border: none;
+  border-radius: 16px;
+  background-image: url("../public/images/thumbsDown.png");
+  background-size: cover;
+}
