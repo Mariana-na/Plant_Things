@@ -68,6 +68,7 @@ nav > div > a > img {
   text-decoration: none;
   color: black;
 }
+
 /* PROFILE PAGE */
 
 .profile-page-main {
@@ -117,3 +118,4 @@ nav > div > a > img {
   background-size: cover;
   background-image: url("../images/background_2x.png");
 }
+

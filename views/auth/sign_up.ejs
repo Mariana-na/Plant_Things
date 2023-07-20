@@ -1,33 +1,40 @@
-<h1>Sign up to be a part of the community!</h1>
 
-<form action="/sign_up" method="POST" enctype="multipart/form-data">
-  <h2>Welcome to Plant Thing! </h2>
-  <h3>Join us in our mission to bring plants to the planet!</h3>
-  <p>Think of a cool username...</p>
-  <label>
-    Username
-    <input name="username" required />
-  </label>
-  <label>
-    E-Mail
-    <input name="email" type="email" required />
-  </label>
-  <label>
-    Password
-    <input name="password" type="password" required />
-  </label>
-  <p>Optional: </p>
-  <label>
-    First name:
-    <input name="firstname" />
-  </label>
-  <label>
-    Surname name:
-    <input name="surname" />
-  </label>
+<link rel="stylesheet" href="/stylesheets/Mstyle.css" />
 
 
-  <label>Upload a photo: <input type="file" name="imageUrl" accept="image/png, image/jpg"></label>
 
-  <button type="submit">Sign Up</button>
-</form>
+<div class="form-containerM">     <!-- This is the main container in which everything is centred using flexbox, flex-direction: column -->
+
+  <h1 class="h11M" >Become a member!</h1>
+
+  <form class="form-containerM" action="/sign_up" method="POST" enctype="multipart/form-data">
+
+    <p class="p1M" >Think of a cool username...</p>
+
+    <div class="field-containerM">      <!-- This is the container containing both the group of labels and the group of fields. This can be centred within the main div (formContainerM) -->
+        
+      <div class="label-fieldsM">      <!-- This is the left hand group of labels. These can be aligned to the right so they all line up -->
+        <label>Username</label>
+        <label>E-Mail</label>
+        <label>Password</label>
+      </div>
+
+      <div class="input-fieldsM">      <!-- This is the right hand group of input fields. These can be aligned to the left so they line up -->
+        <input class="cigaretteM" name="username" required />
+        <input class="cigaretteM" name="email" type="email" required />
+        <input class="cigaretteM" name="password" type="password" required />
+      </div>
+
+    </div>
+
+    <p class="p2M" >Optional:</p>      <!-- Everything below this is centred within formContainerM -->
+
+    <div class="field-containerM" >
+      <label class="photo-labelM" >Upload a photo </label>
+      <input type="file" name="imageUrl" accept="image/png, image/jpg">
+    </div>
+    
+    <button class="commit-buttonM" type="submit">Sign Up!</button>
+
+  </form>
+</div>
