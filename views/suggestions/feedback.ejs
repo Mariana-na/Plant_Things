@@ -7,6 +7,14 @@
       <strong>User lastname:</strong> <%= card.user.surname %><br>
       <strong>Environment:</strong> <%= card.environmentInput.climateZone %><br>
       <strong>Plant Info:</strong> <%= card.plant.plantName %><br>
+      <form method="POST" action="/suggestions/feedback/thumbsUp/<%= card._id %>">
+        <button type="submit">Thumbs Up</button>
+      </form>
+      <form method="POST" action="/suggestions/feedback/thumbsDown/<%= card._id %>">
+        <button type="submit">Thumbs Down</button>
+      </form>
+      <strong>thumbsUp</strong><%= card.thumbsUp %>
+      <strong>thumbsDown</strong><%= card.thumbsDown %>
     </li>
   <% }) %>
 </ul>

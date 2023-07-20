@@ -149,6 +149,7 @@ router.get("/suggestions/feedback", async (req, res) => {
 
 
       curatedCards.push({
+        _id: card._id,
         user: card.suggestedToUserId,
         environmentInput: card.environmentInput,
         plant: card.plantSuggestionId[randomIndex],
@@ -160,25 +161,44 @@ router.get("/suggestions/feedback", async (req, res) => {
     }
 
 
-    res.render("suggestions/feedback", { curatedCards });
+
+    res.render("suggestions/feedback", { curatedCards});
   } catch (error) {
     console.log(error);
   }
 });
 
-/*
-//------------------------Update ThumbsUP -----------------------------
-router.post("/plants/update_plant/:plantId", async (req, res) => {
-  console.log(req.body, req.params);
 
+//------------------------Update ThumbsUP ---------------------------
+router.post("/suggestions/feedback/thumbsUp/:curatedCardsId", async (req, res) => {
+  console.log("fffffffffffffffffffffffffffffffffffffffffffffffffffffff", req.params)
+  
   try {
-    await Plant.findByIdAndUpdate(req.params.plantId, req.body);
-    res.redirect(`/plants/plant_info/${req.params.plantId}`);
+    const suggestionTU = await Suggestion.findByIdAndUpdate(req.params.curatedCardsId,{ $inc: { thumbsUp: 1 } }, { new: true });
+
+    console.log("Updated thumbsUp count:", suggestionTU);
+    res.redirect("/suggestions/feedback");
   } catch (error) {
     console.log(error);
   }
 });
-*/
+
+//-----------------------Update ThumbsDown---------------------------------
+router.post("/suggestions/feedback/thumbsDown/:curatedCardsId", async (req, res) => {
+  console.log("fffffffffffffffffffffffffffffffffffffffffffffffffffffff", req.params)
+  
+  try {
+    const suggestionTD = await Suggestion.findByIdAndUpdate(req.params.curatedCardsId,{ $inc: { thumbsDown: 1 } }, { new: true });
+
+    console.log("Updated thumbsDown count:", suggestionTD);
+    res.redirect("/suggestions/feedback");
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+
+
 
 
 //-------------Update Routes------------------
