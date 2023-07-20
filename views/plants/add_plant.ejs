@@ -30,7 +30,7 @@
     <a href="https://en.wikipedia.org/wiki/K%C3%B6ppen_climate_classification" target="blank">See here for detailed information on Climate Zones</a>
   </label>
   <label>
-    Direct Sunlight Hours:
+    Sunlight:
     <!--Full sun <6h/day Partial sun 3h-6h/day -->
     <select name="sunlight" required>
       <option disabled selected>Select an option</option>
@@ -40,8 +40,8 @@
     </select>
   </label>
   <label>
-    Ideal Soil Type:
-    <select name="soilType" multiple required>
+  Soil Type:
+    <select name="soilType" required>
       <option disabled selected>Select an option</option>
       <% soilType.forEach(soilOption => { %>
       <option value="<%- soilOption %>"><%- soilOption %></option>
@@ -49,7 +49,7 @@
     </select>
   </label>
   <label>
-    Ideal Levels of Organic Matter:
+    Organic Matter:
     <select name="organicMatter" required>
       <option disabled selected>Select an option</option>
       <% organicMatter.forEach(orgMOption => { %>
@@ -65,9 +65,3 @@
   <button type="submit">Add a Plant</button>
 </form>
 
-<!-- Cloudinary stuff
-<form method="POST" action="/upload" enctype="multipart/form-data">
- 
-  <br> <br>
-  <button type="submit" >Add picture</button>
-</form> -->

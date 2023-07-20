@@ -1,3 +1,3 @@
-const plantType = ["Tree", "Shrub", "climber", "Creeper", "Herb"];
+const plantType = ["Tree", "Shrub", "Climber", "Creeper", "Herb"];
 
 module.exports = plantType;

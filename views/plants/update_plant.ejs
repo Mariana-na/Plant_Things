@@ -42,7 +42,7 @@
       <a href="https://en.wikipedia.org/wiki/K%C3%B6ppen_climate_classification" target="blank">See here for detailed information on Climate Zones</a>
     </label>
     <label>
-      Direct Sunlight Hours:
+      Sunlight:
       <!--Full sun <6h/day Partial sun 3h-6h/day -->
       <select name="sunlight" value="<%= sunlight %>" required>
         <% sunlight.forEach(sunOption => { %>
@@ -55,8 +55,8 @@
       </select>
     </label>
     <label>
-      Ideal Soil Type:
-      <select name="soilType" value="<%= soilType %>" multiple required>
+      Soil Type:
+      <select name="soilType" value="<%= soilType %>" required>
         <% soilType.forEach(soilOption => { %>
           <% if(soilOption === plantToUpdate.soilType) { %>
             <option value="<%- soilOption %>" selected ><%- soilOption %></option>
@@ -67,7 +67,7 @@
       </select>
     </label>
     <label>
-      Ideal Levels of Organic Matter:
+      Organic Matter:
       <select name="organicMatter" value="<%= organicMatter %>" required>
         <% organicMatter.forEach(orgMOption => { %>
           <% if(orgMOption === plantToUpdate.organicMatter) { %>
