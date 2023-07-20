@@ -1,1 +1,20 @@
-<h1>Updated plant!</h1>
+<h1><%= plantToUpdate.plantName %> has been updated!</h1>
+
+
+<% if (plantToUpdate) { %>
+    <p>Plant Name: <%= plantToUpdate.plantName %></p>
+    <p>Species: <%= plantToUpdate.species %></p>
+    <p>Ideal Climate: <%= plantToUpdate.climateZone %></p>
+    <p>Direct Sunlight Hours: <%= plantToUpdate.sunlight %></p>
+    <p>Ideal Soil Type: <%= plantToUpdate.soilType %></p>
+    <p>Ideal Levels of Organic Matter:> <%= plantToUpdate.organicMatter %></p>
+    <p>Type of Plant: <%= plantToUpdate.plantType %></p>
+    <% if (plantToUpdate.extraInfo) { %>
+      <p>Additional Information: <%= plantToUpdate.extraInfo %></p>
+    <% } %>
+    <% if (plantToUpdate.image) { %>
+      <img src="<%= plantToUpdate.image %>" alt="Plant Image" width="300">
+    <% } %>
+  <% } else { %>
+    <p>No Update Information</p>
+  <% } %>
