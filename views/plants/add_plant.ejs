@@ -1,67 +1,180 @@
-<h1>Add a Plant to the Database</h1>
+<link rel="stylesheet" href="/stylesheets/Mstyle.css" />
 
-<form action="/plants/add_plant" method="POST" style="display: flex; flex-direction:column; align-items:self-start" enctype="multipart/form-data">
-  <label>
-    Plant Name:
-    <input name="plantName" required />
-  </label>
-  <label>
-    Species:
-    <input name="species" required />
-  </label>
-  <label>
-    Type of Plant:
-    <select name="plantType" required>
-      <option disabled selected>Select an option</option>
-      <% plantType.forEach(pltOption => { %>
-      <option value="<%- pltOption %>"><%- pltOption %></option>
-      <%}) %>
-    </select>
-  </label>
-  <label>
-    Ideal Climate:
-    <select name="climateZone" multiple required>
-      <option disabled selected>Select an option</option>
-      <% climateZone.forEach(cliOption => { %>
-      <option value="<%- cliOption %>"><%- cliOption %></option>
-      <%}) %>
-    </select>
-    <br>
-    <a href="https://en.wikipedia.org/wiki/K%C3%B6ppen_climate_classification" target="blank">See here for detailed information on Climate Zones</a>
-  </label>
-  <label>
-    Sunlight:
-    <!--Full sun <6h/day Partial sun 3h-6h/day -->
-    <select name="sunlight" required>
-      <option disabled selected>Select an option</option>
-      <% sunlight.forEach(sunOption => { %>
-      <option value="<%- sunOption %>"><%- sunOption %></option>
-      <%}) %>
-    </select>
-  </label>
-  <label>
-  Soil Type:
-    <select name="soilType" required>
-      <option disabled selected>Select an option</option>
-      <% soilType.forEach(soilOption => { %>
-      <option value="<%- soilOption %>"><%- soilOption %></option>
-      <%}) %>
-    </select>
-  </label>
-  <label>
-    Organic Matter:
-    <select name="organicMatter" required>
-      <option disabled selected>Select an option</option>
-      <% organicMatter.forEach(orgMOption => { %>
-      <option value="<%- orgMOption %>"><%- orgMOption %></option>
-      <%}) %>
-    </select>
-  </label>
-  <label>
-    Additional Information:
-    <textarea name="extraInfo" cols="30" rows="10"></textarea>
-  </label>
- <label>Upload a photo: <input type="file" name="imageUrl" accept="image/png, image/jpg"></label>
-  <button type="submit">Add a Plant</button>
-</form>
+<div class="full-containerM">
+  
+  <h1 class="add-plant-h1M" >Add a Plant to the Database</h1>
 
+  <form action="/plants/add_plant" method="POST" style="display: flex; flex-direction: column; align-items: self-start" enctype="multipart/form-data">
+
+    <div class="add-plant-field-containerM">
+
+      <div class="input-containerM">
+        <label class="add-plant-labelM">Name:</label>
+        <input class="add-plant-inputM" name="plantName" required />
+      </div>
+
+      <div class="input-containerM">
+        <label class="add-plant-labelM">Species:</label>
+        <input class="add-plant-inputM" id="speciesM" name="species" required />
+      </div>
+
+      <div class="input-containerM">
+        <label class="add-plant-labelM">Type of Plant:</label>
+        <select class="add-plant-selectM"  name="plantType" required>
+          <option disabled selected>Plant Type</option>
+          <% plantType.forEach(pltOption => { %>
+          <option value="<%- pltOption %>"><%- pltOption %></option>
+          <%}) %>
+        </select>
+      </div>
+
+      <div class="input-containerM">
+        <label class="add-plant-labelM">Climate:</label>
+        <select name="climateZone" multiple required>
+          <option disabled selected>Select an option</option>
+          <% climateZone.forEach(cliOption => { %>
+          <option value="<%- cliOption %>"><%- cliOption %></option>
+          <%}) %>
+        </select>
+      </div>
+      <a href="https://en.wikipedia.org/wiki/K%C3%B6ppen_climate_classification" target="blank">See here for detailed information on Climate Zones</a>
+
+      <div class="input-containerM">
+        <label class="add-plant-labelM">Sunlight:</label>
+        <select class="add-plant-selectM" name="sunlight" required>
+          <option disabled selected>Select an option</option>
+          <% sunlight.forEach(sunOption => { %>
+          <option value="<%- sunOption %>"><%- sunOption %></option>
+          <%}) %>
+        </select>
+      </div>
+
+      <div class="input-containerM">
+        <label class="add-plant-labelM">Soil Type:</label>
+        <select class="add-plant-selectM" name="soilType" required>
+          <option disabled selected>Select an option</option>
+          <% soilType.forEach(soilOption => { %>
+          <option value="<%- soilOption %>"><%- soilOption %></option>
+          <%}) %>
+        </select>
+      </div>
+
+      <div class="input-containerM">
+        <label class="add-plant-labelM">Organic Matter:</label>
+        <select class="add-plant-selectM" name="organicMatter" required>
+          <option disabled selected>Select an option</option>
+          <% organicMatter.forEach(orgMOption => { %>
+          <option value="<%- orgMOption %>"><%- orgMOption %></option>
+          <%}) %>
+        </select>
+      </div>
+
+      <div class="input-containerM">
+        <label class="add-plant-labelM">Additional Information:</label>
+        <textarea class="add-plant-textareaM" name="extraInfo" cols="30" rows="10"></textarea>
+      </div>
+
+      <div class="input-containerM">
+        <label class="add-plant-labelM">Upload a photo: <input type="file" name="imageUrl" accept="image/png, image/jpg"></label>
+      </div>
+
+    </div>
+
+    <button class="add-plant-buttonM" type="submit">Add Plant!</button>
+
+  </form>
+</div>
+
+
+
+
+
+
+
+<!--
+<link rel="stylesheet" href="/stylesheets/Mstyle.css" />
+
+<div class="full-containerM" >
+  <h1>Add a Plant to the Database</h1>
+
+  <form action="/plants/add_plant" method="POST" style="display: flex; flex-direction:column; align-items:self-start" enctype="multipart/form-data">
+
+    <div class="add-plant-field-containerM" >
+
+      <label class="add-plant-labelM">Plant Name:</label>
+
+        <input class="add-plant-inputM" name="plantName" required />
+
+
+      <label class="add-plant-labelM">Species:</label>
+
+        <input class="add-plant-inputM" name="species" required />
+
+
+      <label class="add-plant-labelM">Type of Plant:</label>
+
+        <select name="plantType" required>
+          <option disabled selected>Select an option</option>
+          <% plantType.forEach(pltOption => { %>
+          <option value="<%- pltOption %>"><%- pltOption %></option>
+          <%}) %>
+        </select>
+
+
+      <label class="add-plant-labelM">Ideal Climate:</label>
+
+        <select name="climateZone" multiple required>
+          <option disabled selected>Select an option</option>
+          <% climateZone.forEach(cliOption => { %>
+          <option value="<%- cliOption %>"><%- cliOption %></option>
+          <%}) %>
+        </select>
+
+        <a href="https://en.wikipedia.org/wiki/K%C3%B6ppen_climate_classification" target="blank">See here for detailed information on Climate Zones</a>
+
+
+      <label class="add-plant-labelM">Sunlight:</label>
+
+        
+        <select name="sunlight" required>
+          <option disabled selected>Select an option</option>
+          <% sunlight.forEach(sunOption => { %>
+          <option value="<%- sunOption %>"><%- sunOption %></option>
+          <%}) %>
+        </select>
+
+
+      <label class="add-plant-labelM">Soil Type:</label>
+
+        <select name="soilType" required>
+          <option disabled selected>Select an option</option>
+          <% soilType.forEach(soilOption => { %>
+          <option value="<%- soilOption %>"><%- soilOption %></option>
+          <%}) %>
+        </select>
+
+
+      <label class="add-plant-labelM">Organic Matter:</label>
+
+        <select name="organicMatter" required>
+          <option disabled selected>Select an option</option>
+          <% organicMatter.forEach(orgMOption => { %>
+          <option value="<%- orgMOption %>"><%- orgMOption %></option>
+          <%}) %>
+        </select>
+
+
+      <label class="add-plant-labelM">Additional Information:</label>
+
+        <textarea name="extraInfo" cols="30" rows="10"></textarea>
+
+
+      <label class="add-plant-labelM">Upload a photo: <input type="file" name="imageUrl" accept="image/png, image/jpg"></label>
+
+    </div>
+
+    <button type="submit">Add a Plant</button>
+
+  </form>
+</div>
+-->

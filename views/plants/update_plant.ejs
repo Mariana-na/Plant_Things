@@ -1,4 +1,5 @@
-<h1>Update Plant Entry</h1>
+<link rel="stylesheet" href="/stylesheets/Mstyle.css" />
+
 
 <% const climateZone = ["Af", "Am", "Aw/As", "BWh", "BWk", "BSh", "BSk", "Csa", "Csb", "Csc", "Cwa", "Cwb", "Cwc", "Cfa", "Cfb", "Cfc", "Dsa", "Dsb", "Dsc", "Dsd", "DWa", "Dwb", "Dwc", "Dwd", "Dfa", "Dfb", "Dfc", "Dfd", "ET", "EF"]; %>
 <% const sunlight = ["Full Sun", "Partial Sun", "Indirect sunlight only"]; %>
@@ -6,84 +7,117 @@
 <% const organicMatter = ["High level of compost", "Medium level of compost", "Low level of compost"]; %>
 <% const plantType = ["Tree", "Shrub", "climber", "Creeper", "Herb"]; %>
 
-<form action="/plants/update_plant/<%-plantToUpdate._id%>" method="POST" style="display: flex; flex-direction:column; align-items:self-start">
-    <label>
-      Plant Name:
-      <input name="plantName" value="<%- plantToUpdate.plantName %>" required />
-    </label>
-    <label>
-      Species:
-      <input name="species" value="<%- plantToUpdate.species %>" required />
-    </label>
-    <label>
-      Type of Plant:
-      <select name="plantType" value="<%= plantType %>" required>
-        <% plantType.forEach(pltOption => { %>
-            <% if(pltOption === plantToUpdate.plantType) { %>
-                <option value="<%- pltOption %>" selected ><%- pltOption %></option>
-            <%} else {%>
-                <option value="<%- pltOption %>"><%- pltOption %></option> 
-            <%}%>
-        <%}) %>
-      </select>
-    </label>
-    <label>
-      Ideal Climate:
-      <select name="climateZone" value="<%= climateZone %>" multiple required>
-        <% climateZone.forEach(cliOption => { %>
-          <% if(cliOption === plantToUpdate.climateZone) { %>
-            <option value="<%- cliOption %>" selected ><%- cliOption %></option>
-          <%} else {%>
-              <option value="<%- cliOption %>"><%- cliOption %></option> 
-          <%}%>
-        <%}) %>
-      </select>
-      <br>
-      <a href="https://en.wikipedia.org/wiki/K%C3%B6ppen_climate_classification" target="blank">See here for detailed information on Climate Zones</a>
-    </label>
-    <label>
-      Sunlight:
-      <!--Full sun <6h/day Partial sun 3h-6h/day -->
-      <select name="sunlight" value="<%= sunlight %>" required>
-        <% sunlight.forEach(sunOption => { %>
-          <% if(sunOption === plantToUpdate.sunlight) { %>
-            <option value="<%- sunOption %>" selected ><%- sunOption %></option>
-          <%} else {%>
-            <option value="<%- sunOption %>"><%- sunOption %></option>
-            <% } %>
-        <%}) %>
-      </select>
-    </label>
-    <label>
-      Soil Type:
-      <select name="soilType" value="<%= soilType %>" required>
-        <% soilType.forEach(soilOption => { %>
-          <% if(soilOption === plantToUpdate.soilType) { %>
-            <option value="<%- soilOption %>" selected ><%- soilOption %></option>
-          <%} else {%>
-            <option value="<%- soilOption %>"><%- soilOption %></option>
-            <% } %>
-        <%}) %>
-      </select>
-    </label>
-    <label>
-      Organic Matter:
-      <select name="organicMatter" value="<%= organicMatter %>" required>
-        <% organicMatter.forEach(orgMOption => { %>
-          <% if(orgMOption === plantToUpdate.organicMatter) { %>
-            <option value="<%- orgMOption %>" selected ><%- orgMOption %></option>
-          <%} else {%>
-            <option value="<%- orgMOption %>"><%- orgMOption %></option>
-            <% } %>
-        <%}) %>
-      </select>
-    </label>
-    <label>
-      Additional Information:
-      <textarea name="extraInfo" cols="30" rows="10"></textarea>
-    </label>
+
+<div class="full-containerM">
+
+  <h1 class="add-plant-h1M" >Update Plant Entry</h1>
+
+  <form action="/plants/update_plant/<%-plantToUpdate._id%>" method="POST" style="display: flex; flex-direction:column; align-items:self-start">
+
+    <div class="add-plant-field-containerM">
+      
+      <div class="input-containerM">
+        <label class="add-plant-labelM">Plant Name:</label>
+        <input class="add-plant-inputM" name="plantName" value="<%- plantToUpdate.plantName %>" required />
+      </div>
+
+      <div class="input-containerM">
+        <label class="add-plant-labelM">
+          Species:
+          <input class="add-plant-inputM" name="species" value="<%- plantToUpdate.species %>" required />
+        </label>
+      </div>
+
+      <div class="input-containerM">
+        <label class="add-plant-labelM">
+          Type of Plant:
+          <select class="add-plant-selectM" name="plantType" value="<%= plantType %>" required>
+            <% plantType.forEach(pltOption => { %>
+                <% if(pltOption === plantToUpdate.plantType) { %>
+                    <option value="<%- pltOption %>" selected ><%- pltOption %></option>
+                <%} else {%>
+                    <option value="<%- pltOption %>"><%- pltOption %></option> 
+                <%}%>
+            <%}) %>
+          </select>
+        </label>
+      </div>
 
 
-  
-    <button type="submit">Update Plant</button>
+      <div class="input-containerM">
+        <label class="add-plant-labelM">
+          Ideal Climate:
+          <select class="add-plant-selectM" name="climateZone" value="<%= climateZone %>" multiple required>
+            <% climateZone.forEach(cliOption => { %>
+              <% if(cliOption === plantToUpdate.climateZone) { %>
+                <option value="<%- cliOption %>" selected ><%- cliOption %></option>
+              <%} else {%>
+                  <option value="<%- cliOption %>"><%- cliOption %></option> 
+              <%}%>
+            <%}) %>
+          </select>
+          <a href="https://en.wikipedia.org/wiki/K%C3%B6ppen_climate_classification" target="blank">See here for detailed information on Climate Zones</a>
+        </label>
+      </div>
+
+      <div class="input-containerM">
+        <label class="add-plant-labelM">
+          Sunlight:
+          <!--Full sun <6h/day Partial sun 3h-6h/day -->
+          <select class="add-plant-selectM" name="sunlight" value="<%= sunlight %>" required>
+            <% sunlight.forEach(sunOption => { %>
+              <% if(sunOption === plantToUpdate.sunlight) { %>
+                <option value="<%- sunOption %>" selected ><%- sunOption %></option>
+              <%} else {%>
+                <option value="<%- sunOption %>"><%- sunOption %></option>
+                <% } %>
+            <%}) %>
+          </select>
+        </label>
+      </div>
+
+
+      <div class="input-containerM">
+        <label class="add-plant-labelM">
+          Soil Type:
+          <select class="add-plant-selectM" name="soilType" value="<%= soilType %>" required>
+            <% soilType.forEach(soilOption => { %>
+              <% if(soilOption === plantToUpdate.soilType) { %>
+                <option value="<%- soilOption %>" selected ><%- soilOption %></option>
+              <%} else {%>
+                <option value="<%- soilOption %>"><%- soilOption %></option>
+                <% } %>
+            <%}) %>
+          </select>
+        </label>
+      </div>
+
+      <div class="input-containerM">
+        <label class="add-plant-labelM">
+          Organic Matter:
+          <select class="add-plant-selectM" name="organicMatter" value="<%= organicMatter %>" required>
+            <% organicMatter.forEach(orgMOption => { %>
+              <% if(orgMOption === plantToUpdate.organicMatter) { %>
+                <option value="<%- orgMOption %>" selected ><%- orgMOption %></option>
+              <%} else {%>
+                <option value="<%- orgMOption %>"><%- orgMOption %></option>
+                <% } %>
+            <%}) %>
+          </select>
+        </label>
+      </div>
+
+      <div class="input-containerM">
+        <label class="add-plant-labelM">
+          Additional Information:
+          <textarea class="add-plant-textareaM" name="extraInfo" cols="30" rows="10"></textarea>
+        </label>
+      </div>
+
+    </div>
+
+    
+      <button class="add-plant-buttonM" type="submit">Update Plant</button>
+      
   </form>
+</div>    
