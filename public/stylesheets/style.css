@@ -51,10 +51,3 @@ nav > div > img {
   text-decoration: none;
   color: black;
 }
-
-.standard {
-  background-color: aquamarine;
-  direction: flex;
-  flex-direction: column;
-  text-align: center;
-}
