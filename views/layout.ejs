@@ -20,20 +20,16 @@
   <!-- If userInSession is UNDEFINED -->
   <nav>
     <div id="logo-user">
-      <img src="https://res.cloudinary.com/dpncxyxs4/image/upload/v1689507957/temp_logo_l2hbus.png" alt="Plant Thing logo">
-      <div id="user-info-header">
-        <ul>
-          <li><a href="/log_in"></a>Log in!</li>
-          
-        </ul>
-      </div>
+      <a href="/"><img src="https://res.cloudinary.com/dpncxyxs4/image/upload/v1689507957/temp_logo_l2hbus.png" alt="Plant Thing logo"></a>
+    <h2>Plant Quest</h2>
+
     </div>
     <div id="nav-links">
       <ul>
-        <li><a href="/">Home</a></li>
         <li><a href="/users/profile">Profile</a></li>
         <li><a href="/plants/add_plant">Add a plant</a></li>
         <li><a href="/suggestions/suggestion_request">Get a suggestion</a></li>
+        <li><a href="/suggestions/feedback">All suggestions/feedback</a></li>
       </ul>
     </div>
   </nav>
@@ -43,34 +39,34 @@
   <!-- If userInSession is DEFINED -->
   <nav>
     <div id="logo-user">
-
+      <a href="/"><img src="https://res.cloudinary.com/dpncxyxs4/image/upload/v1689507957/temp_logo_l2hbus.png" alt="Plant Thing logo"></a>
       <img src="<%= userInSession.userImage %> " alt="Plant Thing logo">
-
+<h2>Plant Quest</h2>
 
 
       <div id="user-info-header">
-        <form id="logout-form" action="/log_out" method="POST">
-          <button>Logout</button>
-        </form>
+
         <ul>
-          <li><a href="/users/profile"><%= userInSession.firstname %> </a></li>
+          <!-- <li><a href="/users/profile"><%= userInSession.firstname %> </a></li> -->
           <li><%= userInSession.username %> </li>
-          <li>Membership level</li>
+
         </ul>
-         
+        <form id="logout-form" action="/log_out" method="POST">
+          <button id="logout-form-button">Logout</button>
+        </form>
       </div>
     </div>
     <div id="nav-links">
       <ul>
-        <li><a href="/">Home</a></li>
         <li><a href="/users/profile">Profile</a></li>
         <li><a href="/plants/add_plant">Add a plant</a></li>
         <li><a href="/suggestions/suggestion_request">Get a suggestion</a></li>
+        <li><a href="/suggestions/feedback">All suggestions/feedback</a></li>
       </ul>
     </div>
   </nav>
   <% } %>
-<!-- END OF NAV BAR -->
+  <!-- END OF NAV BAR -->
 
   <%- body %>
 
