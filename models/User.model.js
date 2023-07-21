@@ -5,13 +5,11 @@ const userSchema = new Schema({
     type: String,
     trim: true,
     required: true,
-
   },
   surname: {
     type: String,
     trim: true,
     required: true,
-   
   },
   username: {
     type: String,
@@ -37,12 +35,12 @@ const userSchema = new Schema({
   userImage: {
     type: String,
     default:
-      "https://res.cloudinary.com/dpncxyxs4/image/upload/v1689507957/temp_logo_l2hbus.png",
+      "https://res.cloudinary.com/dpncxyxs4/image/upload/v1689919000/default_profile_yll6x7.png",
   },
   isAdmin: {
     type: Boolean,
     default: false,
-  }
+  },
 });
 
 const User = model("User", userSchema);
