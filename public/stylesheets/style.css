@@ -122,7 +122,7 @@ nav > div > a > img {
   display: flex; /* Add this line */
   flex-direction: column;
   justify-content: center;
-  align-items: center; /* Add this line */
+  align-items: center; /* Add this line.. */
 }
 
 #index-bg > img {
