@@ -2,9 +2,9 @@
 
 <div class="full-containerM">
   
-  <h1 class="add-plant-h1M" >Add a Plant to the Database</h1>
+  <h1 class="add-plant-h1M" >Add a Plant</h1>
 
-  <form action="/plants/add_plant" method="POST" style="display: flex; flex-direction: column; align-items: self-start" enctype="multipart/form-data">
+  <form class="form-containerM" action="/plants/add_plant" method="POST" style="display: flex; flex-direction: column; align-items: self-start" enctype="multipart/form-data">
 
     <div class="add-plant-field-containerM">
 
@@ -16,8 +16,8 @@
         <label>Sunlight:</label>
         <label>Soil Type:</label>
         <label>Organic Matter:</label>
-        <label>Additional Information:</label>
-        <label class="add-plant-labelM">Upload a photo:</label>
+        <label>Other Info:</label>
+        <label>Upload a photo:</label>
       </div>
 
       <div class="add-plant-fieldsM" >
@@ -36,7 +36,6 @@
           <option value="<%- cliOption %>"><%- cliOption %></option>
           <%}) %>
         </select> 
-
 
 
         <select class="add-plant-selectM" name="sunlight" required>
@@ -59,7 +58,7 @@
         </select>
         <textarea class="add-plant-textareaM" name="extraInfo" cols="30" rows="10"></textarea>
 
-        <input type="file" name="imageUrl" accept="image/png, image/jpg">
+        <input class="ugly-thingM" type="file" name="imageUrl" accept="image/png, image/jpg">
       </div>
 
       
@@ -151,7 +150,7 @@
         </select>
 
 
-      <label class="add-plant-labelM">Additional Information:</label>
+      <label class="add-plant-labelM">Other Info:</label>
 
         <textarea name="extraInfo" cols="30" rows="10"></textarea>
 
@@ -244,7 +243,7 @@
       </div>
 
       <div class="input-containerM">
-        <label class="add-plant-labelM">Additional Information:</label>
+        <label class="add-plant-labelM">Other Info:</label>
         <textarea class="add-plant-textareaM" name="extraInfo" cols="30" rows="10"></textarea>
       </div>
 

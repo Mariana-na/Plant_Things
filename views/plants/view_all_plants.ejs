@@ -1,7 +1,12 @@
-<h1>View all plants</h1>
+<link rel="stylesheet" href="/stylesheets/Mstyle.css" />
 
-<ul>
-    <% allPlants.forEach(pizza => { %>
-        <li><a href="/plants/plant_info/<%-pizza._id%>"><%- pizza.plantName %></a></li>
-    <%}) %>
-</ul>
+
+<div class="view-all-container">
+    <h1 class="h1-view-allM" >View all plants</h1>
+
+        <ul>
+            <% allPlants.forEach(pizza => { %>
+                <li class="li-elementsM" ><a class="view-all-linksM" href="/plants/plant_info/<%-pizza._id%>"><%- pizza.plantName %></a></li>
+            <%}) %>
+        </ul>
+</div>

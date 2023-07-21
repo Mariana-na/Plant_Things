@@ -1,105 +1,113 @@
-<h1>Tell Us About Your Environment</h1>
+<link rel="stylesheet" href="/stylesheets/Mstyle.css" />
 
 <% const climateZone = ["Af", "Am", "Aw/As", "BWh", "BWk", "BSh", "BSk", "Csa", "Csb", "Csc", "Cwa", "Cwb", "Cwc", "Cfa", "Cfb", "Cfc", "Dsa", "Dsb", "Dsc", "Dsd", "DWa", "Dwb", "Dwc", "Dwd", "Dfa", "Dfb", "Dfc", "Dfd", "ET", "EF"]; %>
 <% const sunlight = ["Full Sun", "Partial Sun", "Indirect sunlight only"]; %>
 <% const soilType = ["Sandy soil", "Clay soil", "Silt soil", /*"Peat soil", "Chalk soil", "Loam soil"*/]; %>
 <% const organicMatter = ["High level of compost", "Medium level of compost", "Low level of compost"]; %>
 <% const plantType = ["Tree", "Shrub", "climber", "Creeper", "Herb"]; %>
-<!-- When reviewing the code, try again to find a way to export these variables, to avoid repeating the same thing that's on the util files -->
 
-<form action="/suggestions/new_suggestion" method="POST">
-  <label>
-    Where will you be keeping your plant?
-    <select id="in_out" name="inOut" onchange=handleSelectionChange() required>
-      <option value="Select">Select an option</option>
-      <option value="Indoors" >Indoors</option>
-      <option value="Outdoors" >Outdoors</option>
-    </select>
-  </label>
 
-  <div id="typeOfPlant" style="display: none;">
-    <label>What type of plant are you looking for?</label>
-    <select name="plantType" id="plantType">
-      <option disabled selected>Select</option>
-      <% plantType.forEach(pltOption => { %>
-        <option value="<%- pltOption %>"><%- pltOption %></option>
-    <%}) %>
-    </select>
-  </div>
+<div class="request-full-containerM" >
 
-  <div id="outClimate" style="display: none;" required>
-    <label>Climate Zone</label>
-    <select name="climateZone" id="climateZone">
-      <option disabled selected>Select</option>
-      <% climateZone.forEach(cliOption => { %>
-        <option value="<%- cliOption %>"><%- cliOption %></option>
-    <%}) %>
-    </select>
-    <br>
-    <a href="https://en.wikipedia.org/wiki/K%C3%B6ppen_climate_classification" target="blank">See here for detailed information on Climate Zones</a>
-  </div>
+  <h1 class="request-h1M">Your Environment</h1>
 
-  <div id="outSun" style="display: none;" required>
-    <label>On average, how long is the direct sunlight exposure in the area you would like your plant?</label>
-    <select name="sunlight" id="sunlight">
-      <option disabled selected>Select an option</option>
-        <% sunlight.forEach(sunOption => { %>
-            <option value="<%- sunOption %>"><%- sunOption %></option>
+  <form class="form-containerM" action="/suggestions/new_suggestion" method="POST">
+
+  <div class="request-field-containerM" >
+
+    <div id="environment-typeM" >
+      <label class="request-labelM">Where will you be keeping your plant?</label>
+        <select class="add-plant-selectM" id="in_out" name="inOut" onchange=handleSelectionChange() required>
+          <option value="Select">Select an option</option>
+          <option value="Indoors" >Indoors</option>
+          <option value="Outdoors" >Outdoors</option>
+        </select>
+    </div>
+
+      <div  id="typeOfPlant" style="display: none;">
+        <label class="request-labelM" >What type of plant are you looking for?</label>
+        <select class="add-plant-selectM" name="plantType" id="plantType">
+          <option disabled selected>Select</option>
+          <% plantType.forEach(pltOption => { %>
+            <option value="<%- pltOption %>"><%- pltOption %></option>
         <%}) %>
-    </select>
-  </div>
+        </select>
+      </div>
 
-  <div id="outSoil" style="display: none;" required>
-    <label>Soil Type</label>
-    <select name="soilType" id="soilType" required>
-      <option disabled selected>Select an option</option>
-      <% soilType.forEach(soilOption => { %>
-          <option value="<%- soilOption %>"><%- soilOption %></option>
-      <%}) %>
-    </select>
-  </div>
+      <div id="outClimate" style="display: none;" required>
+        <label class="request-labelM" ><a class="climate-linkM" href="https://en.wikipedia.org/wiki/K%C3%B6ppen_climate_classification" target="blank">*</a>Climate Zone</label>
+        <select class="add-plant-selectM" name="climateZone" id="climateZone">
+          <option disabled selected>Select</option>
+          <% climateZone.forEach(cliOption => { %>
+            <option value="<%- cliOption %>"><%- cliOption %></option>
+        <%}) %>
+        </select>
+      </div>
 
-  <div id="outOrgMat" style="display: none;" required>
-    <label>Organic Matter</label>
-    <select name="organicMatter" id="organicMatter" required>
-      <option disabled selected>Select an option</option>
-      <% organicMatter.forEach(orgMOption => { %>
-          <option value="<%- orgMOption %>"><%- orgMOption %></option>
-      <%}) %>
-    </select>
-  </div>
+      <div id="outSun" style="display: none;" required>
+        <label class="request-labelM" >Average Sunglight</label>
+        <select class="add-plant-selectM" name="sunlight" id="sunlight">
+          <option disabled selected>Select an option</option>
+            <% sunlight.forEach(sunOption => { %>
+                <option value="<%- sunOption %>"><%- sunOption %></option>
+            <%}) %>
+        </select>
+      </div>
 
- <script>
-  function handleSelectionChange () {
+      <div id="outSoil" style="display: none;" required>
+        <label class="request-labelM" >Soil Type</label>
+        <select class="add-plant-selectM" name="soilType" id="soilType" required>
+          <option disabled selected>Select an option</option>
+          <% soilType.forEach(soilOption => { %>
+              <option value="<%- soilOption %>"><%- soilOption %></option>
+          <%}) %>
+        </select>
+      </div>
 
-    const selectionDropdown = document.getElementById("in_out");
+      <div id="outOrgMat" style="display: none;" required>
+        <label class="request-labelM" >Organic Matter</label>
+        <select class="add-plant-selectM" name="organicMatter" id="organicMatter" required>
+          <option disabled selected>Select an option</option>
+          <% organicMatter.forEach(orgMOption => { %>
+              <option value="<%- orgMOption %>"><%- orgMOption %></option>
+          <%}) %>
+        </select>
+      </div>
+
+    </div>
+
+  <script>
+    function handleSelectionChange () {
+
+      const selectionDropdown = document.getElementById("in_out");
 
 
-    if (selectionDropdown.value === "Outdoors") {
-        outClimate.style.display = "block";
-        outSun.style.display = "block";
-        outSoil.style.display = "block";
-        outOrgMat.style.display = "block";
-        typeOfPlant.style.display = "block";
-        console.log("outdoors selected")
-    } else if (selectionDropdown.value === "Indoors") {
-        outClimate.style.display = "none";
-        outSun.style.display = "none";
-        outSoil.style.display = "none";
-        outOrgMat.style.display = "none";
-        typeOfPlant.style.display = "block";
-        console.log("indoors selected")
-    } else if (selectionDropdown.value === "Select") {
-        typeOfPlant.style.display = "none";
-        outSun.style.display = "none";
-        outSoil.style.display = "none";
-        outOrgMat.style.display = "none";
-        outClimate.style.display = "none";
-        console.log("none selected")
+      if (selectionDropdown.value === "Outdoors") {
+          outClimate.style.display = "block";
+          outSun.style.display = "block";
+          outSoil.style.display = "block";
+          outOrgMat.style.display = "block";
+          typeOfPlant.style.display = "block";
+          console.log("outdoors selected")
+      } else if (selectionDropdown.value === "Indoors") {
+          outClimate.style.display = "none";
+          outSun.style.display = "none";
+          outSoil.style.display = "none";
+          outOrgMat.style.display = "none";
+          typeOfPlant.style.display = "block";
+          console.log("indoors selected")
+      } else if (selectionDropdown.value === "Select") {
+          typeOfPlant.style.display = "none";
+          outSun.style.display = "none";
+          outSoil.style.display = "none";
+          outOrgMat.style.display = "none";
+          outClimate.style.display = "none";
+          console.log("none selected")
+      }
     }
-  }
- </script>
+  </script>
 
-  <br>
-  <button type="submit">Get me a Plant</button>
+    <button class="add-plant-buttonM" type="submit">Get me a Plant!</button>
+
   </form>
+</div>
