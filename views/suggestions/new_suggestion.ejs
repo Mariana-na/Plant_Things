@@ -1,16 +1,23 @@
 <h1>Suggestion Response</h1>
 
 <% if (matchedPlant && matchedPlant.length > 0) { %>
-    <ul>
+    <ul id="all-cards-container" >
       <% matchedPlant.forEach(plant => { %>
-        <li>
-          <strong>Plant Name:</strong> <%= plant.plantName %><br>
-          <strong>Species:</strong> <%= plant.species %><br>
-          <strong>Climate Zone:</strong> <%= plant.climateZone %><br>
-          <strong>Sunlight:</strong> <%= plant.sunlight %><br>
-          <strong>Soil Type:</strong> <%= plant.soilType %><br>
-          <strong>Organic Matter:</strong> <%= plant.organicMatter %><br>
-          <strong>Type of Plant:</strong> <%= plant.plantType %><br>
+        <li id="card-container" >
+          <div id="card-image">
+            <div id="card-image-info">
+              <span id="feedback-plant-name"><%= plant.plantName %></span>
+              <span id="feedback-plant-type"><%= plant.species %></span>
+              <span id="feedback-plant-type"><%= plant.plantType %></span>
+              <span class="feedback-label"><span>Climate:</span> <%= plant.climateZone %></span>
+              <span class="feedback-label"><span>Sunlight: </span><%= plant.sunlight %></span>
+              <span class="feedback-label"><span>Soil Type: </span><%= plant.soilType %></span>
+              <span class="feedback-label"><span>Organic Matter: </span><%= plant.organicMatter %></span>
+            </div>  
+
+            <img src=" <%= plant.image %>" alt="Plant image">
+
+          </div>  
         </li>
       <% }) %>
     </ul>

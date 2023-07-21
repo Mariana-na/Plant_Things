@@ -8,6 +8,7 @@
 
       <div id="card-image-info">
         <span id="feedback-plant-name"><%= card.plant.plantName %></span>
+        <span id="feedback-plant-type"><%= card.plant.species %></span>
         <span id="feedback-plant-type"><%= card.plant.plantType %></span>
         <span id="feedback-plant-request-by">Request by: <%= card.user.username %></span>
       </div>
@@ -18,7 +19,7 @@
 
     <ul id="card-info">
      <li class="feedback-label">
-       <span>Environment:</span> <%= card.environmentInput.climateZone %>
+       <span>Climate:</span> <%= card.environmentInput.climateZone %>
      </li>
      <li class="feedback-label"><span>Sunlight: </span><%= card.environmentInput.sunlight %></li>
      <li class="feedback-label"><span>Soil Type: </span><%= card.environmentInput.soilType %></li>
