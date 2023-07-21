@@ -1,26 +1,46 @@
-<h1>Thank you for your Submission</h1>
+<link rel="stylesheet" href="/stylesheets/Mstyle.css" />
 
-<% if (newlyAddedPlant) { %>
-    <p>Plant Name: <%= newlyAddedPlant.plantName %></p>
-    <p>Species: <%= newlyAddedPlant.species %></p>
-     <p>Type of Plant: <%= newlyAddedPlant.plantType %></p>
+<div class="plant-info-containerM">
+    <h1 class="h1-infoM" >Thank You!</h1>
 
-    <p>Ideal Climate: <%= newlyAddedPlant.climateZone %></p>
-    <p>Soil Type: <%= newlyAddedPlant.soilType %></p>
-    <p>Organic Matter: <%= newlyAddedPlant.organicMatter %></p>
-    <% if (newlyAddedPlant.extraInfo) { %>
-      <p>Additional Information: <%= newlyAddedPlant.extraInfo %></p>
-    <% } %>
-    <% if (newlyAddedPlant.image) { %>
-      <img src="<%= newlyAddedPlant.image %>" alt="Plant Image" width="300">
-    <% } %>
-  <% } else { %>
-    <p>No information available for the new plant.</p>
-  <% } %>
+    <div class="add-plant-field-containerM">
+      <% if (newlyAddedPlant) { %>
+          <div class="add-plant-labelM" >
+            <label>Plant Name:</label>
+            <label>Species:</label>
+            <label>Type of Plant:</label>
+            <label>Climate Zone:</label>
+            <label>Soil Type:</label>
+            <label>Organic Matter:</label>
+          </div>
+          <div class="new-plant-fieldsM" >
+            <p><%= newlyAddedPlant.plantName %></p>
+            <p><%= newlyAddedPlant.species %></p>
+            <p><%= newlyAddedPlant.plantType %></p>
+            <p><%= newlyAddedPlant.climateZone %></p>
+            <p><%= newlyAddedPlant.soilType %></p>
+            <p><%= newlyAddedPlant.organicMatter %></p>
+          </div>  
+          <% if (newlyAddedPlant.extraInfo) { %>
+            <p>Other Info: <%= newlyAddedPlant.extraInfo %></p>
+          <% } %>
+          <% if (newlyAddedPlant.image) { %>
+            <img src="<%= newlyAddedPlant.image %>" alt="Plant Image" width="300">
+          <% } %>
+        <% } else { %>
+          <p>No information available for the new plant.</p>
+      <% } %>
+    </div>
 
-  <a href="/plants/add_plant">Add another plant</a>
-  <a href="/plants/update_plant/<%-newlyAddedPlant._id%>">Update Plant</a>
+    <div class="CRUD-linksM">
+      <a class="add-anotherM" href="/plants/add_plant">Add another plant</a>
 
-  <form method="POST" action="/plants/plant_info/<%- newlyAddedPlant._id %>/delete">
-    <button type="submit">Delete</button>
-  </form>
+        <div class="Admin-linksM" >
+          <a class="update-linkM" href="/plants/update_plant/<%-newlyAddedPlant._id%>">Update Plant</a>
+
+          <form method="POST" action="/plants/plant_info/<%- newlyAddedPlant._id %>/delete">
+            <button class="del-btnM" type="submit">Delete</button>
+          </form>
+        </div>
+
+    </div>

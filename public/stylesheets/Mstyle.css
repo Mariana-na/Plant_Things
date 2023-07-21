@@ -115,28 +115,28 @@ p {
     display: flex;
     flex-direction: row;
     margin: 1rem;
+    margin-bottom: 3rem;
 }
 
 .add-plant-labelM{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+
 }
 
 .add-plant-labelM > label {
     color: #FFFFFF;
     font-size: 1rem;
     width: 10rem;
-    height: 1.7rem;
+    height: 32px;
     margin: 0.5rem;
     padding-right: 1rem;
-    justify-content: center;
-    align-items: center;
     background-color: #03490F;
     border-top-left-radius: 3rem;
     border-bottom-left-radius: 3rem;
     text-align: right;
-    line-height: 1.5rem;
+    line-height: 2rem;
 }
 
 #l8M {
@@ -151,7 +151,7 @@ p {
 .add-plant-inputM {
     margin: 0.5rem;
     width: 15rem;
-    height: 1.7rem;
+    height: 30px;
     border-top-right-radius: 100px;
     border-bottom-right-radius: 100px;
     border: none;
@@ -161,7 +161,7 @@ p {
 .add-plant-selectM {
     margin: 0.5rem;
     width: 15.3rem;
-    height: 2rem;
+    height: 32px;
     border-top-right-radius: 100px;
     border-bottom-right-radius: 100px;
     border: none;
@@ -169,7 +169,7 @@ p {
 .add-plant-climateM {
     margin: 0.5rem;
     width: 15rem;
-    height: 2rem;
+    height: 32px;
     border: none;
 }
 
@@ -182,31 +182,32 @@ p {
     border: none;
 }
 
+.add-plant-fieldsM > .ugly-thingM {
+    margin-top: 18px;
+    margin-left: 8px;
+}
+
 .add-plant-buttonM {
-    margin: 2rem;
+    margin: auto;
+    margin-bottom: 3rem;
     border-radius: 3rem;
     border: none;
-    width: 7rem;
+    width: 9rem;
     height: 3rem;
     font-size: 1.125rem;
     font-weight: bold;
     background-color: #C5DA8B;
-    justify-content: center;
-    align-items: center;
-
 }
-
-
 
 .add-plant-h1M{
     color: #FFFFFF;
-    font-size: 3.5rem;
+    font-size: 3rem;
     background-color: rgba(18, 61, 11, 0.48);
     text-align: center;
     width: 42rem;
     border-radius: 3rem;
-
 }
+
 #species {
     font-style: italic;
 }
@@ -214,3 +215,159 @@ p {
     text-decoration: none;
     color: #C5DA8B;
 }
+/*------------------------------------------------SUGGESTION REQUEST------------------------------------*/
+
+.request-full-containerM {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.request-field-containerM {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+.request-labelM {
+    color: #FFFFFF;
+    font-size: 1rem;
+    width: 18rem;
+    height: 1.7rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    background-color: #03490F;
+    border-top-left-radius: 3rem;
+    border-bottom-left-radius: 3rem;
+    text-align: right;
+    line-height: 1.5rem;
+}
+
+.request-h1M{
+    color: #FFFFFF;
+    font-size: 3rem;
+    background-color: rgba(18, 61, 11, 0.48);
+    text-align: center;
+    width: 42rem;
+    border-radius: 3rem;
+}
+
+/*-------------------------------VIEW ALL---------------------------*/
+
+.view-all-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.view-all-linksM {
+    color: #FFFFFF;
+    text-decoration: none;
+    
+}
+
+.h1-view-allM {
+    color: #FFFFFF;
+    font-size: 3rem;
+    background-color: rgba(18, 61, 11, 0.48);
+    text-align: center;
+    width: 42rem;
+    border-radius: 3rem;
+}
+
+.li-elementsM {
+    margin: 0.5rem;
+    list-style:circle;
+}
+ /*----------------------------------------PLANT INFO----------------------------------------*/
+
+ .plant-info-containerM {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+
+ .new-plant-fieldsM {
+    display: flex;
+    flex-direction: column;
+ }
+ .new-plant-fieldsM > p {
+    background-color: #FFFFFF;
+    color: #001202;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    width: 13rem;
+    height: 2rem;
+    line-height: 2rem;
+    padding-left: 1rem;
+ }
+
+ .h1-infoM {
+    color: #FFFFFF;
+    font-size: 3rem;
+    background-color: rgba(18, 61, 11, 0.48);
+    text-align: center;
+    width: 30rem;
+    border-radius: 3rem;
+ }
+ .info-textM {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+ }
+
+ .CRUD-linksM {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+
+ .Admin-linksM {
+    display: flex;
+    flex-direction: row;
+
+ }
+
+ .add-anotherM {
+    color: #001202;
+    text-decoration: none;
+    margin: 1rem;
+    border-radius: 3rem;
+    border: none;
+    width: 11rem;
+    height: 3rem;
+    font-size: 1.125rem;
+    font-weight: bold;
+    background-color: #9DC6A1;
+    line-height: 3rem;
+    text-align: center;
+ }
+
+ .update-linkM {
+    color: #001202;
+    text-decoration: none;
+    margin: 2rem;
+    border-radius: 3rem;
+    border: none;
+    width: 9rem;
+    height: 3rem;
+    font-size: 1.125rem;
+    font-weight: bold;
+    background-color: #C5DA8B;
+    line-height: 3rem;
+    text-align: center;
+ }
+
+ .del-btnM {
+    margin: 2rem;
+    border-radius: 3rem;
+    border: none;
+    width: 9rem;
+    height: 3rem;
+    font-size: 1.125rem;
+    font-weight: bold;
+    background-color: #C5DA8B;
+ }
+
+ /*----------------------------------*/
