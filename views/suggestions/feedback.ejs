@@ -1,4 +1,4 @@
-<h1 id="feedback-h1">Here we can see and judge all the previous suggestions generated</h1>
+<h1 id="feedback-h1">Some previous suggestions from other users...</h1>
 
 <ul id="all-cards-container">
   <% curatedCards.forEach(card => { %>
@@ -17,10 +17,12 @@
     </div>
 
     <ul id="card-info">
-     <li class="feedback-label">Environment: <%= card.environmentInput.climateZone %></li>
-     <li class="feedback-label">Sunlight: <%= card.environmentInput.sunlight %></li>
-     <li class="feedback-label">Soil Type: <%= card.environmentInput.soilType %></li>
-      <li class="feedback-label">Organic Matter: <%= card.environmentInput.organicMatter %></li>
+     <li class="feedback-label">
+       <span>Environment:</span> <%= card.environmentInput.climateZone %>
+     </li>
+     <li class="feedback-label"><span>Sunlight: </span><%= card.environmentInput.sunlight %></li>
+     <li class="feedback-label"><span>Soil Type: </span><%= card.environmentInput.soilType %></li>
+      <li class="feedback-label"><span>Organic Matter: </span><%= card.environmentInput.organicMatter %></li>
     </ul>
 
     <div class="thumbs-buttons">

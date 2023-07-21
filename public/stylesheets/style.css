@@ -155,54 +155,79 @@ nav > div > a > img {
 
 #all-cards-container {
   display: flex;
+  align-self: center;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
 #card-container {
-  width: 400px;
-  background-color: #03490f;
+  width: 450px;
+  background-color: white;
+  background-image: url("../images/background_2x.png");
   display: flex;
   flex-direction: column;
   margin: 2rem;
-  padding: 2rem;
+  padding: 2rem 0 2rem 0;
   border-radius: 32px;
 }
 
 #card-container {
   display: flex;
   flex-direction: column;
-  border: 3px solid #9DC6A1;
+  border: 3px solid #9dc6a1;
 }
-
 
 #card-image {
   display: flex;
   flex-direction: column;
-
 }
 
 #card-image {
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
+  /* background-color: #9DC6A1;  */
+  background-color: #03490f;
+  /* border-radius: 0.5rem; */
+  border-top: 2px solid #9dc6a1;
+  border-bottom: 2px solid #9dc6a1;
+  margin-bottom: 2rem;
 }
 
 #card-image > img {
-  width: 128px;
-  margin-left: 0.5rem;
+  width: 96px;
+  height: 96px;
+  margin-right: 1rem;
+  border-radius: 0.5rem;
+  border: 2px solid #9dc6a1;
 }
 
 #card-image-info {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
+  margin: 1rem 0rem 1rem 1rem;
+  /* color: #03490f; */
+  color: white;
 }
 
 #card-info {
   list-style: none;
   padding-left: 0;
   margin-bottom: 1rem;
+}
+
+#card-info > li {
+  margin-bottom: 0.5rem;
+}
+
+#card-info > li > span {
+  font-style: italic;
+  margin-right: 1rem;
+  background-color: #9dc6a1;
+  padding: 0.2rem 1rem 0.2rem 1rem;
+  border-radius: 16px;
+  color: #03490f;
 }
 
 .thumbs-buttons {
@@ -231,38 +256,66 @@ nav > div > a > img {
 
 .feedback-label {
   font-size: 1rem;
+  margin: 0 0 0 2rem;
 }
 
 #feedback-h1 {
   text-align: center;
+  margin-top: 4rem;
 }
 
 .thumbs-buttons {
-  gap: 2rem;
+  /* gap: 2rem; */
 }
 
 .thumb-button-group {
   display: flex;
   align-items: center;
   gap: 1rem;
+  margin: auto;
 }
 
 .thumbs-up {
-  background-color: white;
+  background-color: #9dc6a1;
   width: 64px;
   height: 32px;
   border: none;
   border-radius: 16px;
-  background-image: url("../public/images/thumbsUp.png");
-  background-size: cover;
+  background-image: url("https://res.cloudinary.com/dpncxyxs4/image/upload/v1689920041/thumbsUp_n8chxq.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 .thumbs-down {
-  background-color: white;
+  background-color: #9dc6a1;
   width: 64px;
   height: 32px;
   border: none;
   border-radius: 16px;
-  background-image: url("../public/images/thumbsDown.png");
+  background-image: url("https://res.cloudinary.com/dpncxyxs4/image/upload/v1689920041/thumbsDown_nvfync.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* ANIMATIONS */
+
+.leaf-slide {
+  overflow: hidden;
+  position: relative;
+  background-image: url(../images/road.png);
   background-size: cover;
+  animation: slide 5s linear infinite;
+}
+
+@keyframes slide {
+  0% {
+    background-position: -1000px 0;
+  }
+  95% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 0;
+  }
 }
