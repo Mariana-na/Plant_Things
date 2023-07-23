@@ -1,20 +1,94 @@
-Plant Quest is a gardening app that matches its user's environment characteristics with a series of plants that thrive in those conditions.
+PLANT QUEST
 
-The app was created having in mind the thousands of litres of water that are wasted yearly in homes around the world, watering and growing plants that would have no chance at surviving on their own.
+Plant Quest was created having in mind the thousands of litres of water that are wasted yearly in homes around the world, watering  and growing plants that would have no chance of surviving on their own.
 
 With hundreds of thousands of plant species across the globe, there are surely one or two that might just do beautifully in your home without constant supervision and climate control.
 
-However, a privately curated garden takes hours of research, and most gardening apps will help the user modify their environment rather than render suitable options for a medium already established.
+But a privately curated garden takes hours of research... and most gardening apps will help the user modify their environment rather than rendering suitable options for an already-established medium.
 
-Plant Quest allows its signed-up members to reply to a simple questionnaire about their garden/home specificities and their personal preferences. This information is then matched with a plant's ideal living conditions. Resulting in multiple suggestions of plants that will prosper in the inputted environment with minimal care.
+Plant Quest matches the circumstances of a user's garden and their personal preferences with a plant's ideal living conditions, resulting in multiple suggestions of plants that will prosper in the inputted environment with minimal care.
 
-The plant database can also be populated by active members, who might have insightful suggestions on additional plant species! 
-A feedback page is available where people can see the most recent suggestions generated to other users and leave reviews on the quality of these recommendations. The app will use this information to improve its performance. 
+The database can be populated by active members or the application and they are also able to see the most recent suggestions generated to other users.
 
-This project was developed as part of a learning exercise at IronHack Web Development boot camp. In line with the scope of creating an application with persistent storage, all CRUD functions were developed and implemented into the program using JavaScrypt as the main programming language. EJS templating allowed for the use of HTML markup engaged with JS. And CSS was used in the styling of the website. Cloudinary API permitted the additional feature of image upload by the user.
+This project was developed as part of a learning exercise at IronHack web development bootcamp. Naturally, as students, our team committed several mistakes before arriving at any functioning features, which without a doubt provided  the biggest rewards taken from the project.
 
-Naturally, as students, our team committed several mistakes along the process. These reaped, without a doubt, the biggest rewards taken from the project. The generation of information through the union of data from several databases and input instances was a complex process that needed to be revisited many times. The management of all the different facets of the application both on the front and back ends challenged our ability to track and maintain a coherent and functional design. And overall the implementation of the many features so new to us, from the CRUD functions to the imagery API.
+Nonetheless, some are worth mentioning. The generation of information through the union of data from several databases and input instances was a complex process that needed to be revisited many times.
 
-Teamwork in itself can be a challenge. In this case, it was undoubtedly an added value. Cooperation values came through naturally and ease of communication allowed our team to overcome the arising obstacles, as well as keep pushing beyond the minimum requirements.
+Implementation of CRUD
+Coherent and functional design
+Team work
 
-Given the learning scope of this project and its short timeframe, there are a lot of features left on the backburner for a future date. Such as an interactive climate zones map, as well as a simplification of the concept. An "What other plants do you have in this environment?" parameter, to improve the suggestion results through possible symbiotic combinations. A broader set of user communication options, including a comment section and further feedback mechanisms. And possible monetization attributes, namely shopping links to plant-selling enterprises.
+Given the learning scope of this project and its short timeframe, there are a lot of features left on the backburner for a future date, such as an interactive climate zones map, as well as a simplification of the concept.
+
+A "What other plants do you have in this environment?" parameter, used to improve the suggestion results through symbiotic combinations as well as a broader set of user communication options, with a comment section and further feedback mechanisms.
+
+
+PLANT QUEST FEATURES
+
+Some features require a user account to be created, whilst others can be enjoyed by everyone.
+
+Sign up
+
+Users who wish to create an account can do so by clicking here. Users need to provide an email address and a password as well as choosing a unique username.
+
+Log in
+
+Users with an account can log in here, providing their email address and password.
+
+
+Profile
+
+Users who have logged in can see their personal details on this page.
+
+
+Add a plant
+
+Logged-in users only. Users can input the details of plants that will be added to the Plant Quest database and can be suggested to others. Users need to fill in:
+
+Name
+Species
+Type of plant
+Tree
+Shrub
+Climber
+Creeper
+Herb
+Climate
+Climate code based on the Köppen categories
+Sunlight
+Full sun
+Partial sun
+Indirect sunlight only
+Soil type
+Sandy
+Clay
+Silt
+Organic matter
+High level of compost
+Medium level of compost
+Low level of compost
+Additional information
+Other relevant information
+
+Users can also upload an image of the plant.
+
+
+Get a suggestion
+
+Users who would like to find a plant suitable for their situation can use this feature. Users choose first whether they would like an indoors or outdoors plant and then fill in the relevant categories. Clicking Get me a plant will show the user all of the relevant suggestions from the Plant Quest database.
+
+
+All suggestions/feedback
+
+This area shows a variety of suggestions asked for by users and is good for users who would like to browse and/or get some inspiration.
+
+The cards shown here contain information about the plants suggested, the environments given and the users who made the request.
+
+
+CONCEIVED, DESIGNED AND PROGRAMMED BY:
+
+Mariana Ribeiro de Carvalho
+https://github.com/Mariana-na
+
+Peter Rodger
+https://github.com/ecce50
