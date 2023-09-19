@@ -1,20 +1,21 @@
 <div class="profile-page-main">
-  <h1>Welcome, <%= userInSession.firstname %>!</h1>
 
-  <h2>Here is your profile page!</h2>
 
-  <% if(typeof userInSession !== "undefined") { %>
+  <% if(typeof userInSession !== undefined) { %>
 
-  <div class="profile-user-info">
-    <!-- <span><p>Name: <%= userInSession.firstname %> <%= userInSession.surname %></p></span> -->
+  <div class="profile-user-info">x
+    <h1>Welcome, <%= userInSession.username %>!</h1>
 
+    <h2>Here is your profile page!</h2>
     <p class="profile-label">Username:</p>
     <p class="profile-info"><%= userInSession.username %></p>
     <p class="profile-label">Email:</p>
     <p class="profile-info"><%= userInSession.email %> </p>
 
-    <p> <a href="/plants/view_all_plants">View All Plants</a></p>
+    <% if(userInSession.isAdmin === true) { %>
 
+    <p> <a href="/plants/view_all_plants">View All Plants</a></p>
+    <% } %>
 
   </div>
 
@@ -28,7 +29,6 @@
 
   <% } else { %>
 
-  <br>
   <p>Still no logged in user, sorry!</p>
 
   <% } %>
