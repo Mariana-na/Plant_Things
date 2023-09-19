@@ -20,7 +20,7 @@ router.post("/sign_up", uploader.single("imageUrl"), async (req, res, next) => {
     return;
   }
 
-  const { firstname, surname, username, email, plantsAdded } = req.body;
+  const { username, email } = req.body;
   const salt = bcrypt.genSaltSync(13);
   const passwordHash = bcrypt.hashSync(req.body.password, salt);
 
@@ -28,17 +28,14 @@ router.post("/sign_up", uploader.single("imageUrl"), async (req, res, next) => {
 
   try {
     const newUser = await User.create({
-      firstname,
-      surname,
       username,
       email,
-      plantsAdded,
       userImage,
       passwordHash,
     });
     // Here we'll redirect our new user to their profile page
     // NEW COMMENT
-    res.redirect("/users/profile");
+    res.redirect("/log_in");
   } catch (error) {
     console.log(error);
   }
