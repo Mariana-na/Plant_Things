@@ -122,12 +122,14 @@ router.post("/suggestions/new_suggestion", async (req, res) => {
     console.log(matchedPlant);
 
     let suggestedToUserId = req.session.currentUser._id;
+    //console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaa", req.session.currentUser._id)
 
     const suggestionData = {
       suggestedToUserId,
       environmentInput: req.body,
       plantSuggestionId: matchedPlant,
     };
+    //console.log("bbbbbbbbbbbbbbbbbbbbbbbb", suggestionData)
     const newSuggestion = new Suggestion(suggestionData);
     await newSuggestion.save();
     res.render("suggestions/new_suggestion", { matchedPlant });
@@ -148,9 +150,6 @@ router.get("/suggestions/feedback", async (req, res) => {
     for (const card of feedbackCards) {
       const randomIndex = Math.floor(Math.random() * card.plantSuggestionId.length)
       
-      // console.log(card.suggestedToUserId)
-      console.log("card.suggestedToUserId:", card.suggestedToUserId);
-      console.log("card.user.username:", card.suggestedToUserId.username);
 
 
 
@@ -178,7 +177,7 @@ router.get("/suggestions/feedback", async (req, res) => {
 
 //------------------------Update ThumbsUP ---------------------------
 router.post("/suggestions/feedback/thumbsUp/:curatedCardsId", async (req, res) => {
-  console.log("fffffffffffffffffffffffffffffffffffffffffffffffffffffff", req.params)
+
   
   try {
     const suggestionTU = await Suggestion.findByIdAndUpdate(req.params.curatedCardsId,{ $inc: { thumbsUp: 1 } }, { new: true });
@@ -192,7 +191,7 @@ router.post("/suggestions/feedback/thumbsUp/:curatedCardsId", async (req, res) =
 
 //-----------------------Update ThumbsDown---------------------------------
 router.post("/suggestions/feedback/thumbsDown/:curatedCardsId", async (req, res) => {
-  console.log("fffffffffffffffffffffffffffffffffffffffffffffffffffffff", req.params)
+
   
   try {
     const suggestionTD = await Suggestion.findByIdAndUpdate(req.params.curatedCardsId,{ $inc: { thumbsDown: 1 } }, { new: true });

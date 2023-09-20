@@ -9,7 +9,7 @@ cloudinary.config({
   api_key: process.env.CLOUD_API_KEY,
   api_secret: process.env.CLOUD_API_SECRET,
 });
-console.log("Here is the process.env: ",process.env)
+
 const storage = new CloudinaryStorage({
   cloudinary,
   folder: "plantquest", // The name of the folder in cloudinary . You can name this whatever you want
