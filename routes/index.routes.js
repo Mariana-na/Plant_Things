@@ -141,12 +141,16 @@ router.get("/suggestions/feedback", async (req, res) => {
   const {suggestedToUserId, environmentInput, plantSuggestionId} = req.query
 
   try {
-    const feedbackCards = await Suggestion.find().populate("suggestedToUserId").populate({path:"plantSuggestionId", model: "Plant"}).limit(6);
+    const feedbackCards = await Suggestion.find().populate({path:"suggestedToUserId", model: "User"}).populate({path:"plantSuggestionId", model: "Plant"}).limit(6);
 
     const curatedCards = [];
 
     for (const card of feedbackCards) {
       const randomIndex = Math.floor(Math.random() * card.plantSuggestionId.length)
+      
+      // console.log(card.suggestedToUserId)
+      console.log("card.suggestedToUserId:", card.suggestedToUserId);
+      console.log("card.user.username:", card.suggestedToUserId.username);
 
 
 
@@ -159,6 +163,7 @@ router.get("/suggestions/feedback", async (req, res) => {
         thumbsDown: card.thumbsDown,
         createdAt: card.createdAt,
       });
+
 
     }
 
