@@ -10,42 +10,42 @@ const plantSchema = new Schema(
     plantName: {
       type: String,
       trim: true,
-      //required: true,
+      required: true,
     },
     species: {
       type: String,
-      //required: true,
+      required: true,
       trim: true
     },
     climateZone: {
       type: [String],
       label: "Select One",
       enum: climateZone,
-      //required: true,
+      required: true,
     },
     sunlight: {
         type: String,
         label: "Select One",
         enum: sunlight,
-        //required: true,
+        required: true,
     },
     soilType: {
         type: [String],
         label: "Select One",
         enum: soilType,
-        //required: true,
+        required: true,
     },
     organicMatter: {
         type: String,
         label: "Select One",
         enum: organicMatter,
-        //required: true,
+        required: true,
     },
     plantType: {
         type: String,
         label: "Select One",
         enum: plantType,
-        //required: true,
+        required: true,
     },
     extraInfo: {
       type: String,
