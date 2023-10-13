@@ -12,6 +12,7 @@
             <label>Climate Zone:</label>
             <label>Soil Type:</label>
             <label>Organic Matter:</label>
+            <label>Other Info: </label>
           </div>
           <div class="new-plant-fieldsM" >
             <p><%= newlyAddedPlant.plantName %></p>
@@ -20,10 +21,11 @@
             <p><%= newlyAddedPlant.climateZone %></p>
             <p><%= newlyAddedPlant.soilType %></p>
             <p><%= newlyAddedPlant.organicMatter %></p>
-          </div>  
-          <% if (newlyAddedPlant.extraInfo) { %>
-            <p>Other Info: <%= newlyAddedPlant.extraInfo %></p>
-          <% } %>
+ 
+            <% if (newlyAddedPlant.extraInfo) { %>
+              <p><%= newlyAddedPlant.extraInfo %></p>
+            <% } %>
+          </div>
           <% if (newlyAddedPlant.image) { %>
             <img src="<%= newlyAddedPlant.image %>" alt="Plant Image" width="300">
           <% } %>
